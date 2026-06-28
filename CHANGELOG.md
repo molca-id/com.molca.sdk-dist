@@ -2,6 +2,17 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.1.1] — Unreleased
+
+### Fixed
+- **Standalone closure:** ship `ZXing.Net` (`Runtime/Plugins/zxing.unity.dll`, v0.16.11.0, Apache-2.0)
+  inside the package. `QRScanner` referenced `ZXing` via a dev-repo-only `Assets/Plugins/zxing.dll`, so a
+  clean consumer would fail to compile `MolcaSDK`. The DLL now ships with the package (Auto Reference on,
+  matching prior behavior) and the Apache license is included. Consumers that already imported `zxing.dll`
+  directly must remove their copy to avoid an ambiguous-`ZXing` conflict.
+- `MolcaSDK.Package.Tests` now also guards against shipped source using a third-party namespace whose
+  assembly isn't bundled (catches the ZXing class of leak that a path-only scan missed).
+
 ## [0.1.0] — Unreleased
 
 ### Added

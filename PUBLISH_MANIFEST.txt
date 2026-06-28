@@ -1,8 +1,8 @@
-﻿com.molca.sdk@0.1.0
+﻿com.molca.sdk@0.1.1
 Depends on com.molca.core@1.9.7 (consumer resolves Core dist Git-URL)
-Published: 2026-06-28 23:18:32Z
-Source commit: 49413377
-Files: 812
+Published: 2026-06-29 00:01:15Z
+Source commit: 8cb81f74
+Files: 817
 
 CHANGELOG.md
 CHANGELOG.md.meta
@@ -261,6 +261,11 @@ Runtime/Art/UIs/WhiteAlpha.png
 Runtime/Art/UIs/WhiteAlpha.png.meta
 Runtime/MolcaSDK.asmdef
 Runtime/MolcaSDK.asmdef.meta
+Runtime/Plugins.meta
+Runtime/Plugins/ZXing.Net-LICENSE.txt
+Runtime/Plugins/ZXing.Net-LICENSE.txt.meta
+Runtime/Plugins/zxing.unity.dll
+Runtime/Plugins/zxing.unity.dll.meta
 Runtime/Prefabs.meta
 Runtime/Prefabs/Runtime Manager.prefab
 Runtime/Prefabs/Runtime Manager.prefab.meta
