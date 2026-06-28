@@ -2,6 +2,12 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.1.3] — Unreleased
+
+### Changed
+- Bump the `com.molca.core` dependency pin to `1.9.8` (Core now declares the toggleable built-in modules
+  it uses directly — ugui/audio/unitywebrequest/uielements — per Sprint 63).
+
 ## [0.1.2] — Unreleased
 
 ### Fixed

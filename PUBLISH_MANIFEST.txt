@@ -1,8 +1,8 @@
-﻿com.molca.sdk@0.1.2
-Depends on com.molca.core@1.9.7 (consumer resolves Core dist Git-URL)
-Published: 2026-06-29 00:10:42Z
-Source commit: 71ceb7e9
-Files: 817
+﻿com.molca.sdk@0.1.3
+Depends on com.molca.core@1.9.8 (consumer resolves Core dist Git-URL)
+Published: 2026-06-29 01:27:33Z
+Source commit: 1eb4b497
+Files: 819
 
 CHANGELOG.md
 CHANGELOG.md.meta
@@ -37,6 +37,8 @@ Editor/Scripts/ShaderVariant/VariantCombinator.cs
 Editor/Scripts/ShaderVariant/VariantCombinator.cs.meta
 package.json
 package.json.meta
+README.md
+README.md.meta
 Runtime.meta
 Runtime/Art.meta
 Runtime/Art/2D Models.meta
