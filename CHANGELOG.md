@@ -2,6 +2,17 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.1.2] — Unreleased
+
+### Fixed
+- **Standalone closure (built-in modules):** declare `com.unity.modules.video` (used by `MediaInfo`'s
+  `UnityEngine.Video.VideoPlayer`) and `com.unity.ugui` (used directly throughout via `UnityEngine.UI` /
+  `EventSystems`). A consumer without the Video module enabled previously failed to compile with CS1069.
+  Built-in modules are `com.unity.modules.*` UPM packages, so declaring them lets UPM ensure they're
+  present on install.
+- `MolcaSDK.Package.Tests` now also guards built-in-module closure (Runtime use of a toggleable
+  `UnityEngine` namespace must be backed by a declared dependency).
+
 ## [0.1.1] — Unreleased
 
 ### Fixed
