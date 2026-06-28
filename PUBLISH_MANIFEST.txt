@@ -1,0 +1,818 @@
+﻿com.molca.sdk@0.1.0
+Depends on com.molca.core@1.9.7 (consumer resolves Core dist Git-URL)
+Published: 2026-06-28 23:18:32Z
+Source commit: 49413377
+Files: 812
+
+CHANGELOG.md
+CHANGELOG.md.meta
+Editor.meta
+Editor/Scripts.meta
+Editor/Scripts/AddressablesBuildNotificationProvider.cs
+Editor/Scripts/AddressablesBuildNotificationProvider.cs.meta
+Editor/Scripts/AssemblyInfo.cs
+Editor/Scripts/AssemblyInfo.cs.meta
+Editor/Scripts/ButtonStateEditor.cs
+Editor/Scripts/ButtonStateEditor.cs.meta
+Editor/Scripts/ColorIDButtonDrawer.cs
+Editor/Scripts/ColorIDButtonDrawer.cs.meta
+Editor/Scripts/ColorIDButtonGroupDrawer.cs
+Editor/Scripts/ColorIDButtonGroupDrawer.cs.meta
+Editor/Scripts/ContentPackage.meta
+Editor/Scripts/ContentPackage/PackageContentButtonDrawer.cs
+Editor/Scripts/ContentPackage/PackageContentButtonDrawer.cs.meta
+Editor/Scripts/MolcaSDK.Editor.asmdef
+Editor/Scripts/MolcaSDK.Editor.asmdef.meta
+Editor/Scripts/Setup.meta
+Editor/Scripts/Setup/QuickSetupInstaller.cs
+Editor/Scripts/Setup/QuickSetupInstaller.cs.meta
+Editor/Scripts/ShaderVariant.meta
+Editor/Scripts/ShaderVariant/ShaderVariantBuildRecorder.cs
+Editor/Scripts/ShaderVariant/ShaderVariantBuildRecorder.cs.meta
+Editor/Scripts/ShaderVariant/ShaderVariantRecord.cs
+Editor/Scripts/ShaderVariant/ShaderVariantRecord.cs.meta
+Editor/Scripts/ShaderVariant/ShaderVariantSplitTool.cs
+Editor/Scripts/ShaderVariant/ShaderVariantSplitTool.cs.meta
+Editor/Scripts/ShaderVariant/VariantCombinator.cs
+Editor/Scripts/ShaderVariant/VariantCombinator.cs.meta
+package.json
+package.json.meta
+Runtime.meta
+Runtime/Art.meta
+Runtime/Art/2D Models.meta
+Runtime/Art/2D Models/Shared.meta
+Runtime/Art/2D Models/Shared/Flags.meta
+Runtime/Art/2D Models/Shared/Flags/flag-indonesia.png
+Runtime/Art/2D Models/Shared/Flags/flag-indonesia.png.meta
+Runtime/Art/2D Models/Shared/Flags/flag-united-kingdom.png
+Runtime/Art/2D Models/Shared/Flags/flag-united-kingdom.png.meta
+Runtime/Art/3D Models.meta
+Runtime/Art/3D Models/Materials.meta
+Runtime/Art/3D Models/Materials/mat_Ground.mat
+Runtime/Art/3D Models/Materials/mat_Ground.mat.meta
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Dark.mat
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Dark.mat.meta
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Day.mat
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Day.mat.meta
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Morning.mat
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Morning.mat.meta
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Sunset.mat
+Runtime/Art/3D Models/Materials/mat_Procedural Sky_Sunset.mat.meta
+Runtime/Art/3D Models/Ridlo.meta
+Runtime/Art/3D Models/Ridlo/circle.fbx
+Runtime/Art/3D Models/Ridlo/circle.fbx.meta
+Runtime/Art/Audio.meta
+Runtime/Art/Audio/Musical, Misc, Computer, OS Modern, Celestial, Heavenly, Pads, Chimes SND64170.wav
+Runtime/Art/Audio/Musical, Misc, Computer, OS Modern, Celestial, Heavenly, Pads, Chimes SND64170.wav.meta
+Runtime/Art/Audio/User Interface, Click, Neutral, Select Tone SND31030 3.wav
+Runtime/Art/Audio/User Interface, Click, Neutral, Select Tone SND31030 3.wav.meta
+Runtime/Art/Shared.meta
+Runtime/Art/Shared/AR Plane.mat
+Runtime/Art/Shared/AR Plane.mat.meta
+Runtime/Art/Shared/LoadingBG.anim
+Runtime/Art/Shared/LoadingBG.anim.meta
+Runtime/Art/Shared/ModelPreview.mat
+Runtime/Art/Shared/ModelPreview.mat.meta
+Runtime/Art/Shared/Outline.mat
+Runtime/Art/Shared/Outline.mat.meta
+Runtime/Art/Shared/Video Texture.renderTexture
+Runtime/Art/Shared/Video Texture.renderTexture.meta
+Runtime/Art/UIs.meta
+Runtime/Art/UIs/Accent.png
+Runtime/Art/UIs/Accent.png.meta
+Runtime/Art/UIs/Account Box.png
+Runtime/Art/UIs/Account Box.png.meta
+Runtime/Art/UIs/Background_Full.png
+Runtime/Art/UIs/Background_Full.png.meta
+Runtime/Art/UIs/Background_Full_2x.png
+Runtime/Art/UIs/Background_Full_2x.png.meta
+Runtime/Art/UIs/Background_Half.png
+Runtime/Art/UIs/Background_Half.png.meta
+Runtime/Art/UIs/Icons.meta
+Runtime/Art/UIs/Icons/animation.png
+Runtime/Art/UIs/Icons/animation.png.meta
+Runtime/Art/UIs/Icons/ArrowLeft.png
+Runtime/Art/UIs/Icons/ArrowLeft.png.meta
+Runtime/Art/UIs/Icons/arrow-right-on-rectangle.png
+Runtime/Art/UIs/Icons/arrow-right-on-rectangle.png.meta
+Runtime/Art/UIs/Icons/bars-3.png
+Runtime/Art/UIs/Icons/bars-3.png.meta
+Runtime/Art/UIs/Icons/bulb.png
+Runtime/Art/UIs/Icons/bulb.png.meta
+Runtime/Art/UIs/Icons/chevron-up.png
+Runtime/Art/UIs/Icons/chevron-up.png.meta
+Runtime/Art/UIs/Icons/delete.png
+Runtime/Art/UIs/Icons/delete.png.meta
+Runtime/Art/UIs/Icons/eye.png
+Runtime/Art/UIs/Icons/eye.png.meta
+Runtime/Art/UIs/Icons/eye-invisible.png
+Runtime/Art/UIs/Icons/eye-invisible.png.meta
+Runtime/Art/UIs/Icons/fa6-solid_helmet-safety.png
+Runtime/Art/UIs/Icons/fa6-solid_helmet-safety.png.meta
+Runtime/Art/UIs/Icons/fa7-solid_helmet-safety.png
+Runtime/Art/UIs/Icons/fa7-solid_helmet-safety.png.meta
+Runtime/Art/UIs/Icons/fluent_document-20-filled.png
+Runtime/Art/UIs/Icons/fluent_document-20-filled.png.meta
+Runtime/Art/UIs/Icons/Frame 2609849.png
+Runtime/Art/UIs/Icons/Frame 2609849.png.meta
+Runtime/Art/UIs/Icons/fullscreen.png
+Runtime/Art/UIs/Icons/fullscreen.png.meta
+Runtime/Art/UIs/Icons/fullscreen_exit.png
+Runtime/Art/UIs/Icons/fullscreen_exit.png.meta
+Runtime/Art/UIs/Icons/game-icons_auto-repair.png
+Runtime/Art/UIs/Icons/game-icons_auto-repair.png.meta
+Runtime/Art/UIs/Icons/ic_round-view-in-ar.png
+Runtime/Art/UIs/Icons/ic_round-view-in-ar.png.meta
+Runtime/Art/UIs/Icons/icon_access_time.png
+Runtime/Art/UIs/Icons/icon_access_time.png.meta
+Runtime/Art/UIs/Icons/icon_arrow_forward.png
+Runtime/Art/UIs/Icons/icon_arrow_forward.png.meta
+Runtime/Art/UIs/Icons/icon_backspace.png
+Runtime/Art/UIs/Icons/icon_backspace.png.meta
+Runtime/Art/UIs/Icons/icon_brightness med.png
+Runtime/Art/UIs/Icons/icon_brightness med.png.meta
+Runtime/Art/UIs/Icons/icon_check_circle.png
+Runtime/Art/UIs/Icons/icon_check_circle.png.meta
+Runtime/Art/UIs/Icons/icon_dark mode.png
+Runtime/Art/UIs/Icons/icon_dark mode.png.meta
+Runtime/Art/UIs/Icons/icon_home.png
+Runtime/Art/UIs/Icons/icon_home.png.meta
+Runtime/Art/UIs/Icons/icon_image.png
+Runtime/Art/UIs/Icons/icon_image.png.meta
+Runtime/Art/UIs/Icons/icon_left.png
+Runtime/Art/UIs/Icons/icon_left.png.meta
+Runtime/Art/UIs/Icons/icon_light mode.png
+Runtime/Art/UIs/Icons/icon_light mode.png.meta
+Runtime/Art/UIs/Icons/icon_location_on.png
+Runtime/Art/UIs/Icons/icon_location_on.png.meta
+Runtime/Art/UIs/Icons/icon_more_vert.png
+Runtime/Art/UIs/Icons/icon_more_vert.png.meta
+Runtime/Art/UIs/Icons/icon_open_in_new.png
+Runtime/Art/UIs/Icons/icon_open_in_new.png.meta
+Runtime/Art/UIs/Icons/icon_profile.png
+Runtime/Art/UIs/Icons/icon_profile.png.meta
+Runtime/Art/UIs/Icons/icon_quit.png
+Runtime/Art/UIs/Icons/icon_quit.png.meta
+Runtime/Art/UIs/Icons/icon_restore.png
+Runtime/Art/UIs/Icons/icon_restore.png.meta
+Runtime/Art/UIs/Icons/icon_settings.png
+Runtime/Art/UIs/Icons/icon_settings.png.meta
+Runtime/Art/UIs/Icons/icon_star.png
+Runtime/Art/UIs/Icons/icon_star.png.meta
+Runtime/Art/UIs/Icons/icon_timer.png
+Runtime/Art/UIs/Icons/icon_timer.png.meta
+Runtime/Art/UIs/Icons/iconamoon_check.png
+Runtime/Art/UIs/Icons/iconamoon_check.png.meta
+Runtime/Art/UIs/Icons/icon-multi.png
+Runtime/Art/UIs/Icons/icon-multi.png.meta
+Runtime/Art/UIs/Icons/icon-single.png
+Runtime/Art/UIs/Icons/icon-single.png.meta
+Runtime/Art/UIs/Icons/information-circle.png
+Runtime/Art/UIs/Icons/information-circle.png.meta
+Runtime/Art/UIs/Icons/language.png
+Runtime/Art/UIs/Icons/language.png.meta
+Runtime/Art/UIs/Icons/layout-list.png
+Runtime/Art/UIs/Icons/layout-list.png.meta
+Runtime/Art/UIs/Icons/list-bullet.png
+Runtime/Art/UIs/Icons/list-bullet.png.meta
+Runtime/Art/UIs/Icons/loading-icon.png
+Runtime/Art/UIs/Icons/loading-icon.png.meta
+Runtime/Art/UIs/Icons/loading-icon-128x.png
+Runtime/Art/UIs/Icons/loading-icon-128x.png.meta
+Runtime/Art/UIs/Icons/lucide｜app-window.png
+Runtime/Art/UIs/Icons/lucide｜app-window.png.meta
+Runtime/Art/UIs/Icons/lucide｜arrow-up-down.png
+Runtime/Art/UIs/Icons/lucide｜arrow-up-down.png.meta
+Runtime/Art/UIs/Icons/magnifying-glass.png
+Runtime/Art/UIs/Icons/magnifying-glass.png.meta
+Runtime/Art/UIs/Icons/material-symbols_factory.png
+Runtime/Art/UIs/Icons/material-symbols_factory.png.meta
+Runtime/Art/UIs/Icons/mdi_animation-play.png
+Runtime/Art/UIs/Icons/mdi_animation-play.png.meta
+Runtime/Art/UIs/Icons/motion_play.png
+Runtime/Art/UIs/Icons/motion_play.png.meta
+Runtime/Art/UIs/Icons/pause.png
+Runtime/Art/UIs/Icons/pause.png.meta
+Runtime/Art/UIs/Icons/ph_barcode.png
+Runtime/Art/UIs/Icons/ph_barcode.png.meta
+Runtime/Art/UIs/Icons/ph_tree-structure-fill.png
+Runtime/Art/UIs/Icons/ph_tree-structure-fill.png.meta
+Runtime/Art/UIs/Icons/play.png
+Runtime/Art/UIs/Icons/play.png.meta
+Runtime/Art/UIs/Icons/play_unfill.png
+Runtime/Art/UIs/Icons/play_unfill.png.meta
+Runtime/Art/UIs/Icons/plus.png
+Runtime/Art/UIs/Icons/plus.png.meta
+Runtime/Art/UIs/Icons/power.png
+Runtime/Art/UIs/Icons/power.png.meta
+Runtime/Art/UIs/Icons/question-mark-circle.png
+Runtime/Art/UIs/Icons/question-mark-circle.png.meta
+Runtime/Art/UIs/Icons/radio-off.png
+Runtime/Art/UIs/Icons/radio-off.png.meta
+Runtime/Art/UIs/Icons/radio-on.png
+Runtime/Art/UIs/Icons/radio-on.png.meta
+Runtime/Art/UIs/Icons/Read.png
+Runtime/Art/UIs/Icons/Read.png.meta
+Runtime/Art/UIs/Icons/repeat.png
+Runtime/Art/UIs/Icons/repeat.png.meta
+Runtime/Art/UIs/Icons/ri_equalizer-line.png
+Runtime/Art/UIs/Icons/ri_equalizer-line.png.meta
+Runtime/Art/UIs/Icons/Setting.png
+Runtime/Art/UIs/Icons/Setting.png.meta
+Runtime/Art/UIs/Icons/solar_scale-broken.png
+Runtime/Art/UIs/Icons/solar_scale-broken.png.meta
+Runtime/Art/UIs/Icons/sound.png
+Runtime/Art/UIs/Icons/sound.png.meta
+Runtime/Art/UIs/Icons/squares-2x2.png
+Runtime/Art/UIs/Icons/squares-2x2.png.meta
+Runtime/Art/UIs/Icons/subdir_arrow.png
+Runtime/Art/UIs/Icons/subdir_arrow.png.meta
+Runtime/Art/UIs/Icons/tabler_number-123.png
+Runtime/Art/UIs/Icons/tabler_number-123.png.meta
+Runtime/Art/UIs/Icons/tabler_switch-vertical.png
+Runtime/Art/UIs/Icons/tabler_switch-vertical.png.meta
+Runtime/Art/UIs/Icons/User.png
+Runtime/Art/UIs/Icons/User.png.meta
+Runtime/Art/UIs/Icons/videocam_off.png
+Runtime/Art/UIs/Icons/videocam_off.png.meta
+Runtime/Art/UIs/Icons/videocam_on.png
+Runtime/Art/UIs/Icons/videocam_on.png.meta
+Runtime/Art/UIs/Icons/warehouse.png
+Runtime/Art/UIs/Icons/warehouse.png.meta
+Runtime/Art/UIs/Outline-128px.png
+Runtime/Art/UIs/Outline-128px.png.meta
+Runtime/Art/UIs/Outline-32px ExtraBold.png
+Runtime/Art/UIs/Outline-32px ExtraBold.png.meta
+Runtime/Art/UIs/Outline-32px.png
+Runtime/Art/UIs/Outline-32px.png.meta
+Runtime/Art/UIs/Outline-64px ExtraBold.png
+Runtime/Art/UIs/Outline-64px ExtraBold.png.meta
+Runtime/Art/UIs/Outline-64px.png
+Runtime/Art/UIs/Outline-64px.png.meta
+Runtime/Art/UIs/Outline-bold-128px.png
+Runtime/Art/UIs/Outline-bold-128px.png.meta
+Runtime/Art/UIs/Outline-bold-32px.png
+Runtime/Art/UIs/Outline-bold-32px.png.meta
+Runtime/Art/UIs/Outline-bold-64px.png
+Runtime/Art/UIs/Outline-bold-64px.png.meta
+Runtime/Art/UIs/Pattern.png
+Runtime/Art/UIs/Pattern.png.meta
+Runtime/Art/UIs/WhiteAlpha.png
+Runtime/Art/UIs/WhiteAlpha.png.meta
+Runtime/MolcaSDK.asmdef
+Runtime/MolcaSDK.asmdef.meta
+Runtime/Prefabs.meta
+Runtime/Prefabs/Runtime Manager.prefab
+Runtime/Prefabs/Runtime Manager.prefab.meta
+Runtime/Prefabs/SDK Subsystems.prefab
+Runtime/Prefabs/SDK Subsystems.prefab.meta
+Runtime/Prefabs/UI.meta
+Runtime/Prefabs/UI/Audio Volume UI.prefab
+Runtime/Prefabs/UI/Audio Volume UI.prefab.meta
+Runtime/Prefabs/UI/Auth Panel.prefab
+Runtime/Prefabs/UI/Auth Panel.prefab.meta
+Runtime/Prefabs/UI/Button With Icon.prefab
+Runtime/Prefabs/UI/Button With Icon.prefab.meta
+Runtime/Prefabs/UI/Button.prefab
+Runtime/Prefabs/UI/Button.prefab.meta
+Runtime/Prefabs/UI/Color Scheme Dropdown.prefab
+Runtime/Prefabs/UI/Color Scheme Dropdown.prefab.meta
+Runtime/Prefabs/UI/ContentPackage List Item.prefab
+Runtime/Prefabs/UI/ContentPackage List Item.prefab.meta
+Runtime/Prefabs/UI/ContentPackageManager UI.prefab
+Runtime/Prefabs/UI/ContentPackageManager UI.prefab.meta
+Runtime/Prefabs/UI/EnterPIN.prefab
+Runtime/Prefabs/UI/EnterPIN.prefab.meta
+Runtime/Prefabs/UI/General List Item.prefab
+Runtime/Prefabs/UI/General List Item.prefab.meta
+Runtime/Prefabs/UI/Home Panel.prefab
+Runtime/Prefabs/UI/Home Panel.prefab.meta
+Runtime/Prefabs/UI/InputField (TMP).prefab
+Runtime/Prefabs/UI/InputField (TMP).prefab.meta
+Runtime/Prefabs/UI/Language Dropdown.prefab
+Runtime/Prefabs/UI/Language Dropdown.prefab.meta
+Runtime/Prefabs/UI/Media.meta
+Runtime/Prefabs/UI/Media/Document Handler.prefab
+Runtime/Prefabs/UI/Media/Document Handler.prefab.meta
+Runtime/Prefabs/UI/Media/Image Handler.prefab
+Runtime/Prefabs/UI/Media/Image Handler.prefab.meta
+Runtime/Prefabs/UI/Media/MediaPreview.prefab
+Runtime/Prefabs/UI/Media/MediaPreview.prefab.meta
+Runtime/Prefabs/UI/Media/Video Handler.prefab
+Runtime/Prefabs/UI/Media/Video Handler.prefab.meta
+Runtime/Prefabs/UI/MediaInfo Cycle.prefab
+Runtime/Prefabs/UI/MediaInfo Cycle.prefab.meta
+Runtime/Prefabs/UI/Number Key.prefab
+Runtime/Prefabs/UI/Number Key.prefab.meta
+Runtime/Prefabs/UI/NumberKeyboard.prefab
+Runtime/Prefabs/UI/NumberKeyboard.prefab.meta
+Runtime/Prefabs/UI/PackageContent Button.prefab
+Runtime/Prefabs/UI/PackageContent Button.prefab.meta
+Runtime/Prefabs/UI/Password InputField (TMP) Variant.prefab
+Runtime/Prefabs/UI/Password InputField (TMP) Variant.prefab.meta
+Runtime/Prefabs/UI/Username InputField (TMP) Variant.prefab
+Runtime/Prefabs/UI/Username InputField (TMP) Variant.prefab.meta
+Runtime/ScriptableObjects.meta
+Runtime/ScriptableObjects/Http Request.meta
+Runtime/ScriptableObjects/Http Request/_BaseAuthHead_HttpRequest.asset
+Runtime/ScriptableObjects/Http Request/_BaseAuthHead_HttpRequest.asset.meta
+Runtime/ScriptableObjects/SceneNames.meta
+Runtime/ScriptableObjects/SceneNames/SN-Auth.asset
+Runtime/ScriptableObjects/SceneNames/SN-Auth.asset.meta
+Runtime/ScriptableObjects/SceneNames/SN-Home.asset
+Runtime/ScriptableObjects/SceneNames/SN-Home.asset.meta
+Runtime/ScriptableObjects/SceneNames/SN-Preload.asset
+Runtime/ScriptableObjects/SceneNames/SN-Preload.asset.meta
+Runtime/Scripts.meta
+Runtime/Scripts/AssemblyInfo.cs
+Runtime/Scripts/AssemblyInfo.cs.meta
+Runtime/Scripts/Auth.meta
+Runtime/Scripts/Auth/AuthUI.cs
+Runtime/Scripts/Auth/AuthUI.cs.meta
+Runtime/Scripts/Auth/Http Request.meta
+Runtime/Scripts/Auth/Http Request/Login_HttpRequest.asset
+Runtime/Scripts/Auth/Http Request/Login_HttpRequest.asset.meta
+Runtime/Scripts/Auth/Http Request/Logout_HttpRequest.asset
+Runtime/Scripts/Auth/Http Request/Logout_HttpRequest.asset.meta
+Runtime/Scripts/Auth/Http Request/Validate Token_HttpRequest.asset
+Runtime/Scripts/Auth/Http Request/Validate Token_HttpRequest.asset.meta
+Runtime/Scripts/Auth/UserData.cs
+Runtime/Scripts/Auth/UserData.cs.meta
+Runtime/Scripts/GameManager.cs
+Runtime/Scripts/GameManager.cs.meta
+Runtime/Scripts/Home.meta
+Runtime/Scripts/Home/AudioSettingUI.cs
+Runtime/Scripts/Home/AudioSettingUI.cs.meta
+Runtime/Scripts/Home/ProfileUI.cs
+Runtime/Scripts/Home/ProfileUI.cs.meta
+Runtime/Scripts/Media.meta
+Runtime/Scripts/Media/DocumentHandler.cs
+Runtime/Scripts/Media/DocumentHandler.cs.meta
+Runtime/Scripts/Media/Http Request.meta
+Runtime/Scripts/Media/Http Request/LoadDocument_HttpRequest.asset
+Runtime/Scripts/Media/Http Request/LoadDocument_HttpRequest.asset.meta
+Runtime/Scripts/Media/Http Request/LoadTexture_HttpRequest.asset
+Runtime/Scripts/Media/Http Request/LoadTexture_HttpRequest.asset.meta
+Runtime/Scripts/Media/Http Request/LoadVideo_HttpRequest.asset
+Runtime/Scripts/Media/Http Request/LoadVideo_HttpRequest.asset.meta
+Runtime/Scripts/Media/ImageHandler.cs
+Runtime/Scripts/Media/ImageHandler.cs.meta
+Runtime/Scripts/Media/IMediaHandler.cs
+Runtime/Scripts/Media/IMediaHandler.cs.meta
+Runtime/Scripts/Media/MediaInfo.cs
+Runtime/Scripts/Media/MediaInfo.cs.meta
+Runtime/Scripts/Media/MediaLoader.cs
+Runtime/Scripts/Media/MediaLoader.cs.meta
+Runtime/Scripts/Media/VideoHandler.cs
+Runtime/Scripts/Media/VideoHandler.cs.meta
+Runtime/Scripts/Modal.meta
+Runtime/Scripts/Modal/DatePicker.meta
+Runtime/Scripts/Modal/DatePicker/DateField.cs
+Runtime/Scripts/Modal/DatePicker/DateField.cs.meta
+Runtime/Scripts/Modal/DatePicker/DatePickerExample.cs
+Runtime/Scripts/Modal/DatePicker/DatePickerExample.cs.meta
+Runtime/Scripts/Modal/DatePicker/DatePickerModal.cs
+Runtime/Scripts/Modal/DatePicker/DatePickerModal.cs.meta
+Runtime/Scripts/Modal/DatePicker/DatePickerModalHelper.cs
+Runtime/Scripts/Modal/DatePicker/DatePickerModalHelper.cs.meta
+Runtime/Scripts/Modal/MediaConfirmationModal.cs
+Runtime/Scripts/Modal/MediaConfirmationModal.cs.meta
+Runtime/Scripts/Modal/MODAL_TYPES_SUMMARY.md
+Runtime/Scripts/Modal/MODAL_TYPES_SUMMARY.md.meta
+Runtime/Scripts/Modal/Notification.meta
+Runtime/Scripts/Modal/Notification/NotificationHelper.cs
+Runtime/Scripts/Modal/Notification/NotificationHelper.cs.meta
+Runtime/Scripts/Modal/Notification/NotificationModal.cs
+Runtime/Scripts/Modal/Notification/NotificationModal.cs.meta
+Runtime/Scripts/Modal/NumberInputKeyboard.cs
+Runtime/Scripts/Modal/NumberInputKeyboard.cs.meta
+Runtime/Scripts/Modal/ProgressModal.cs
+Runtime/Scripts/Modal/ProgressModal.cs.meta
+Runtime/Scripts/Modal/SelectionModal.cs
+Runtime/Scripts/Modal/SelectionModal.cs.meta
+Runtime/Scripts/Modal/SelectionOptionUI.cs
+Runtime/Scripts/Modal/SelectionOptionUI.cs.meta
+Runtime/Scripts/Modal/TextInputModal.cs
+Runtime/Scripts/Modal/TextInputModal.cs.meta
+Runtime/Scripts/Preload.meta
+Runtime/Scripts/Preload/FirstLaunchCheck.cs
+Runtime/Scripts/Preload/FirstLaunchCheck.cs.meta
+Runtime/Scripts/Preload/IPreloadCheck.cs
+Runtime/Scripts/Preload/IPreloadCheck.cs.meta
+Runtime/Scripts/Preload/PreloadCheck.cs
+Runtime/Scripts/Preload/PreloadCheck.cs.meta
+Runtime/Scripts/Preload/ShaderVariantManifest.cs
+Runtime/Scripts/Preload/ShaderVariantManifest.cs.meta
+Runtime/Scripts/Preload/ShaderWarmupCheck.cs
+Runtime/Scripts/Preload/ShaderWarmupCheck.cs.meta
+Runtime/Scripts/UI.meta
+Runtime/Scripts/UI/BatteryStatus.cs
+Runtime/Scripts/UI/BatteryStatus.cs.meta
+Runtime/Scripts/UI/BillboardUI.cs
+Runtime/Scripts/UI/BillboardUI.cs.meta
+Runtime/Scripts/UI/ButtonState.cs
+Runtime/Scripts/UI/ButtonState.cs.meta
+Runtime/Scripts/UI/ButtonStateGroup.cs
+Runtime/Scripts/UI/ButtonStateGroup.cs.meta
+Runtime/Scripts/UI/CanvasScaleListener.cs
+Runtime/Scripts/UI/CanvasScaleListener.cs.meta
+Runtime/Scripts/UI/CodeInputPanel.cs
+Runtime/Scripts/UI/CodeInputPanel.cs.meta
+Runtime/Scripts/UI/ColorIDButton.cs
+Runtime/Scripts/UI/ColorIDButton.cs.meta
+Runtime/Scripts/UI/ColorIDButtonGroup.cs
+Runtime/Scripts/UI/ColorIDButtonGroup.cs.meta
+Runtime/Scripts/UI/ColorSchemeDropdown.cs
+Runtime/Scripts/UI/ColorSchemeDropdown.cs.meta
+Runtime/Scripts/UI/ColorSchemeToggle.cs
+Runtime/Scripts/UI/ColorSchemeToggle.cs.meta
+Runtime/Scripts/UI/ContentPackage.meta
+Runtime/Scripts/UI/ContentPackage/ContentPackageManagerUI.cs
+Runtime/Scripts/UI/ContentPackage/ContentPackageManagerUI.cs.meta
+Runtime/Scripts/UI/ContentPackage/PackageContentButton.cs
+Runtime/Scripts/UI/ContentPackage/PackageContentButton.cs.meta
+Runtime/Scripts/UI/ContentPackage/PackageListItemUI.cs
+Runtime/Scripts/UI/ContentPackage/PackageListItemUI.cs.meta
+Runtime/Scripts/UI/ContentPackage/PREFAB_SETUP.md
+Runtime/Scripts/UI/ContentPackage/PREFAB_SETUP.md.meta
+Runtime/Scripts/UI/LanguageDropdown.cs
+Runtime/Scripts/UI/LanguageDropdown.cs.meta
+Runtime/Scripts/UI/MediaInfoCycle.cs
+Runtime/Scripts/UI/MediaInfoCycle.cs.meta
+Runtime/Scripts/UI/MediaPreviewUI.cs
+Runtime/Scripts/UI/MediaPreviewUI.cs.meta
+Runtime/Scripts/UI/PanelCycle.cs
+Runtime/Scripts/UI/PanelCycle.cs.meta
+Runtime/Scripts/UI/PasswordField.cs
+Runtime/Scripts/UI/PasswordField.cs.meta
+Runtime/Scripts/UI/ProgressBarUI.cs
+Runtime/Scripts/UI/ProgressBarUI.cs.meta
+Runtime/Scripts/UI/ProjectLogoUI.cs
+Runtime/Scripts/UI/ProjectLogoUI.cs.meta
+Runtime/Scripts/UI/TimeText.cs
+Runtime/Scripts/UI/TimeText.cs.meta
+Runtime/Scripts/UI/UIReference.cs
+Runtime/Scripts/UI/UIReference.cs.meta
+Runtime/Scripts/UI/UIScaleOption.cs
+Runtime/Scripts/UI/UIScaleOption.cs.meta
+Runtime/Scripts/Utilities.meta
+Runtime/Scripts/Utilities/BooleanColor.cs
+Runtime/Scripts/Utilities/BooleanColor.cs.meta
+Runtime/Scripts/Utilities/DelayedEvent.cs
+Runtime/Scripts/Utilities/DelayedEvent.cs.meta
+Runtime/Scripts/Utilities/InputHelper.cs
+Runtime/Scripts/Utilities/InputHelper.cs.meta
+Runtime/Scripts/Utilities/IntCounter.cs
+Runtime/Scripts/Utilities/IntCounter.cs.meta
+Runtime/Scripts/Utilities/OutlineGroupHelper.cs
+Runtime/Scripts/Utilities/OutlineGroupHelper.cs.meta
+Runtime/Scripts/Utilities/ProximityTrigger.cs
+Runtime/Scripts/Utilities/ProximityTrigger.cs.meta
+Runtime/Scripts/Utilities/QRScanner.cs
+Runtime/Scripts/Utilities/QRScanner.cs.meta
+Runtime/Scripts/Utilities/RectTransformHelper.cs
+Runtime/Scripts/Utilities/RectTransformHelper.cs.meta
+Runtime/Scripts/Utilities/RectTransformInterpolate.cs
+Runtime/Scripts/Utilities/RectTransformInterpolate.cs.meta
+Runtime/Scripts/Utilities/RotateUtil.cs
+Runtime/Scripts/Utilities/RotateUtil.cs.meta
+Runtime/Scripts/Utilities/SimpleToggle.cs
+Runtime/Scripts/Utilities/SimpleToggle.cs.meta
+Runtime/Scripts/Utilities/ToggleColor.cs
+Runtime/Scripts/Utilities/ToggleColor.cs.meta
+Runtime/Scripts/Utilities/ToggleGO.cs
+Runtime/Scripts/Utilities/ToggleGO.cs.meta
+Runtime/Scripts/Utilities/TransformHelper.cs
+Runtime/Scripts/Utilities/TransformHelper.cs.meta
+Runtime/Scripts/Utilities/VersionText.cs
+Runtime/Scripts/Utilities/VersionText.cs.meta
+Runtime/Settings.meta
+Runtime/Settings/Audio.meta
+Runtime/Settings/Audio/Base BGM Collection.asset
+Runtime/Settings/Audio/Base BGM Collection.asset.meta
+Runtime/Settings/Audio/Base SFX Collection.asset
+Runtime/Settings/Audio/Base SFX Collection.asset.meta
+Runtime/Settings/Audio/Base VO Collection.asset
+Runtime/Settings/Audio/Base VO Collection.asset.meta
+Runtime/Settings/Audio/BGM Audio Library.asset
+Runtime/Settings/Audio/BGM Audio Library.asset.meta
+Runtime/Settings/Audio/SFX Audio Library.asset
+Runtime/Settings/Audio/SFX Audio Library.asset.meta
+Runtime/Settings/Audio/Voice Audio Library.asset
+Runtime/Settings/Audio/Voice Audio Library.asset.meta
+Runtime/Settings/Build.meta
+Runtime/Settings/Build/Build Settings.asset
+Runtime/Settings/Build/Build Settings.asset.meta
+Runtime/Settings/Build/Profiles.meta
+Runtime/Settings/Build/Profiles/Molca Android - Default.asset
+Runtime/Settings/Build/Profiles/Molca Android - Default.asset.meta
+Runtime/Settings/Build/Profiles/Molca iOS - Default.asset
+Runtime/Settings/Build/Profiles/Molca iOS - Default.asset.meta
+Runtime/Settings/Build/Profiles/Molca PC - Default.asset
+Runtime/Settings/Build/Profiles/Molca PC - Default.asset.meta
+Runtime/Settings/Build/Profiles/Molca Quest - Default.asset
+Runtime/Settings/Build/Profiles/Molca Quest - Default.asset.meta
+Runtime/Settings/Build/Version Settings.asset
+Runtime/Settings/Build/Version Settings.asset.meta
+Runtime/Settings/ContentPackage.meta
+Runtime/Settings/ContentPackage/CloudflareR2StorageProvider.asset
+Runtime/Settings/ContentPackage/CloudflareR2StorageProvider.asset.meta
+Runtime/Settings/ContentPackage/ContentPackageBuildConfig.asset
+Runtime/Settings/ContentPackage/ContentPackageBuildConfig.asset.meta
+Runtime/Settings/Fonts.meta
+Runtime/Settings/Fonts/Molca.meta
+Runtime/Settings/Fonts/Molca/Molca-Bold SDF.asset
+Runtime/Settings/Fonts/Molca/Molca-Bold SDF.asset.meta
+Runtime/Settings/Fonts/Molca/Molca-Bold.otf
+Runtime/Settings/Fonts/Molca/Molca-Bold.otf.meta
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative SDF.asset
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative SDF.asset.meta
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative.otf
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative.otf.meta
+Runtime/Settings/Fonts/Molca-Body LTSI.asset
+Runtime/Settings/Fonts/Molca-Body LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Brand-Bold LTSI.asset
+Runtime/Settings/Fonts/Molca-Brand-Bold LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Brand-Medium LTSI.asset
+Runtime/Settings/Fonts/Molca-Brand-Medium LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 10 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 10 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 12 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 12 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 12_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 12_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 14 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 14 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 16 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 16 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 16_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 16_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 24 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 24 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 28 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 28 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Content 30 LTSI.asset
+Runtime/Settings/Fonts/Molca-Content 30 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 12 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 12 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 12_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 12_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 14 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 14 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 14_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 14_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 16 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 16 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 16_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 16_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 20 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 20 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 24 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 24 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 24_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 24_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 28 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 28 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 30 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 30 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 32 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 32 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 32_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 32_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 42 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 42 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-ContentTitle 48 LTSI.asset
+Runtime/Settings/Fonts/Molca-ContentTitle 48 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Footer LTSI.asset
+Runtime/Settings/Fonts/Molca-Footer LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Header LTSI.asset
+Runtime/Settings/Fonts/Molca-Header LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Regular 14 LTSI.asset
+Runtime/Settings/Fonts/Molca-Regular 14 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Regular 16 LTSI.asset
+Runtime/Settings/Fonts/Molca-Regular 16 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Regular 16_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Regular 16_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Regular 18_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Regular 18_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Subtitle LTSI.asset
+Runtime/Settings/Fonts/Molca-Subtitle LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 10 LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 10 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 16 LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 16 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 16_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 16_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 18 LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 18 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 20 LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 20 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 20_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 20_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 24 LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 24 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 24_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 24_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 36 LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 36 LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 36_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 36_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Molca-Title 78_Overlay LTSI.asset
+Runtime/Settings/Fonts/Molca-Title 78_Overlay LTSI.asset.meta
+Runtime/Settings/Fonts/Poppins.meta
+Runtime/Settings/Fonts/Poppins/OFL.txt
+Runtime/Settings/Fonts/Poppins/OFL.txt.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Black.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Black.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-BlackItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-BlackItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Bold SDF.asset
+Runtime/Settings/Fonts/Poppins/Poppins-Bold SDF.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Bold.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Bold.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Bold_Overlay SDF.asset
+Runtime/Settings/Fonts/Poppins/Poppins-Bold_Overlay SDF.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-BoldItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-BoldItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraBold.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraBold.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraBoldItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraBoldItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraLight.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraLight.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraLightItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-ExtraLightItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Italic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Italic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Light.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Light.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-LightItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-LightItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Medium SDF.asset
+Runtime/Settings/Fonts/Poppins/Poppins-Medium SDF.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Medium SDF_Overlay.asset
+Runtime/Settings/Fonts/Poppins/Poppins-Medium SDF_Overlay.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Medium.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Medium.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-MediumItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-MediumItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Regular SDF.asset
+Runtime/Settings/Fonts/Poppins/Poppins-Regular SDF.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Regular SDF_Overlay.asset
+Runtime/Settings/Fonts/Poppins/Poppins-Regular SDF_Overlay.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Regular.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Regular.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBold SDF.asset
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBold SDF.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBold SDF_Overlay.asset
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBold SDF_Overlay.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBold.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBold.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBoldItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-SemiBoldItalic.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-Thin.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-Thin.ttf.meta
+Runtime/Settings/Fonts/Poppins/Poppins-ThinItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-ThinItalic.ttf.meta
+Runtime/Settings/Localization.meta
+Runtime/Settings/Localization/Locales.meta
+Runtime/Settings/Localization/Locales/English (en).asset
+Runtime/Settings/Localization/Locales/English (en).asset.meta
+Runtime/Settings/Localization/Locales/Indonesian (id).asset
+Runtime/Settings/Localization/Locales/Indonesian (id).asset.meta
+Runtime/Settings/Localization/Localization Settings.asset
+Runtime/Settings/Localization/Localization Settings.asset.meta
+Runtime/Settings/Localization/String Tables.meta
+Runtime/Settings/Localization/String Tables/Auth Shared Data.asset
+Runtime/Settings/Localization/String Tables/Auth Shared Data.asset.meta
+Runtime/Settings/Localization/String Tables/Auth.asset
+Runtime/Settings/Localization/String Tables/Auth.asset.meta
+Runtime/Settings/Localization/String Tables/Auth_en.asset
+Runtime/Settings/Localization/String Tables/Auth_en.asset.meta
+Runtime/Settings/Localization/String Tables/Auth_id.asset
+Runtime/Settings/Localization/String Tables/Auth_id.asset.meta
+Runtime/Settings/Localization/String Tables/Dynamic Shared Data.asset
+Runtime/Settings/Localization/String Tables/Dynamic Shared Data.asset.meta
+Runtime/Settings/Localization/String Tables/Dynamic.asset
+Runtime/Settings/Localization/String Tables/Dynamic.asset.meta
+Runtime/Settings/Localization/String Tables/Dynamic_en.asset
+Runtime/Settings/Localization/String Tables/Dynamic_en.asset.meta
+Runtime/Settings/Localization/String Tables/Dynamic_id.asset
+Runtime/Settings/Localization/String Tables/Dynamic_id.asset.meta
+Runtime/Settings/Localization/String Tables/Setting Shared Data.asset
+Runtime/Settings/Localization/String Tables/Setting Shared Data.asset.meta
+Runtime/Settings/Localization/String Tables/Setting.asset
+Runtime/Settings/Localization/String Tables/Setting.asset.meta
+Runtime/Settings/Localization/String Tables/Setting_en.asset
+Runtime/Settings/Localization/String Tables/Setting_en.asset.meta
+Runtime/Settings/Localization/String Tables/Setting_id.asset
+Runtime/Settings/Localization/String Tables/Setting_id.asset.meta
+Runtime/Settings/Localization/String Tables/Shared Shared Data.asset
+Runtime/Settings/Localization/String Tables/Shared Shared Data.asset.meta
+Runtime/Settings/Localization/String Tables/Shared.asset
+Runtime/Settings/Localization/String Tables/Shared.asset.meta
+Runtime/Settings/Localization/String Tables/Shared_en.asset
+Runtime/Settings/Localization/String Tables/Shared_en.asset.meta
+Runtime/Settings/Localization/String Tables/Shared_id.asset
+Runtime/Settings/Localization/String Tables/Shared_id.asset.meta
+Runtime/Settings/MolcaSentryReleaseConfiguration.asset
+Runtime/Settings/MolcaSentryReleaseConfiguration.asset.meta
+Runtime/Settings/Notification.meta
+Runtime/Settings/Notification/Addressables Build Notification Provider.asset
+Runtime/Settings/Notification/Addressables Build Notification Provider.asset.meta
+Runtime/Settings/Notification/BuildNotificationProvider.asset
+Runtime/Settings/Notification/BuildNotificationProvider.asset.meta
+Runtime/Settings/Notification/LightBakingNotificationProvider.asset
+Runtime/Settings/Notification/LightBakingNotificationProvider.asset.meta
+Runtime/Settings/Notification/NotificationSettings.asset
+Runtime/Settings/Notification/NotificationSettings.asset.meta
+Runtime/Settings/Rendering.meta
+Runtime/Settings/Rendering/Molca URP Asset High.asset
+Runtime/Settings/Rendering/Molca URP Asset High.asset.meta
+Runtime/Settings/Rendering/Molca URP Asset Low.asset
+Runtime/Settings/Rendering/Molca URP Asset Low.asset.meta
+Runtime/Settings/Rendering/Molca URP Asset Medium.asset
+Runtime/Settings/Rendering/Molca URP Asset Medium.asset.meta
+Runtime/Settings/Rendering/Molca URP Asset Ultra.asset
+Runtime/Settings/Rendering/Molca URP Asset Ultra.asset.meta
+Runtime/Settings/Rendering/Molca URP Asset Very High.asset
+Runtime/Settings/Rendering/Molca URP Asset Very High.asset.meta
+Runtime/Settings/Rendering/Molca URP Asset Very Low.asset
+Runtime/Settings/Rendering/Molca URP Asset Very Low.asset.meta
+Runtime/Settings/Rendering/Molca URP Asset_Renderer.asset
+Runtime/Settings/Rendering/Molca URP Asset_Renderer.asset.meta
+Runtime/Settings/Rendering/Molca VolumeProfile.asset
+Runtime/Settings/Rendering/Molca VolumeProfile.asset.meta
+Runtime/Shaders.meta
+Runtime/Shaders/GradientSky.shader
+Runtime/Shaders/GradientSky.shader.meta
+Runtime/Shaders/UIOverlay.mat
+Runtime/Shaders/UIOverlay.mat.meta
+Runtime/Shaders/UIOverlay.shader
+Runtime/Shaders/UIOverlay.shader.meta
+Runtime/Shared.meta
+Runtime/Shared/Audio.meta
+Runtime/Shared/Audio/Dialog.meta
+Runtime/Shared/Audio/Dialog/molca-portal_welcome_en.mp3
+Runtime/Shared/Audio/Dialog/molca-portal_welcome_en.mp3.meta
+Runtime/Shared/Audio/Dialog/molca-portal_welcome_id.mp3
+Runtime/Shared/Audio/Dialog/molca-portal_welcome_id.mp3.meta
+Runtime/Shared/Video Render Texture.renderTexture
+Runtime/Shared/Video Render Texture.renderTexture.meta
+Samples~/QuickSetup/Settings/Global.meta
+Samples~/QuickSetup/Settings/Global/Audio Setting.asset
+Samples~/QuickSetup/Settings/Global/Audio Setting.asset.meta
+Samples~/QuickSetup/Settings/Global/Canvas Scale Setting.asset
+Samples~/QuickSetup/Settings/Global/Canvas Scale Setting.asset.meta
+Samples~/QuickSetup/Settings/Global/Color Scheme.meta
+Samples~/QuickSetup/Settings/Global/Color Scheme/ColorModule - Default.asset
+Samples~/QuickSetup/Settings/Global/Color Scheme/ColorModule - Default.asset.meta
+Samples~/QuickSetup/Settings/Global/Color Scheme/ColorModule - Light.asset
+Samples~/QuickSetup/Settings/Global/Color Scheme/ColorModule - Light.asset.meta
+Samples~/QuickSetup/Settings/Global/Content Package Settings.asset
+Samples~/QuickSetup/Settings/Global/Content Package Settings.asset.meta
+Samples~/QuickSetup/Settings/Global/Global Settings.asset
+Samples~/QuickSetup/Settings/Global/Global Settings.asset.meta
+Samples~/QuickSetup/Settings/Global/HTTP Settings.asset
+Samples~/QuickSetup/Settings/Global/HTTP Settings.asset.meta
+Samples~/QuickSetup/Settings/Global/Localization Setting.asset
+Samples~/QuickSetup/Settings/Global/Localization Setting.asset.meta
+Samples~/QuickSetup/Settings/Global/Reference Manager Settings.asset
+Samples~/QuickSetup/Settings/Global/Reference Manager Settings.asset.meta
+Samples~/QuickSetup/Settings/Global/TelemetrySettings.asset
+Samples~/QuickSetup/Settings/Global/TelemetrySettings.asset.meta
+Samples~/QuickSetup/Settings/Molca InputSystem_Actions.inputactions
+Samples~/QuickSetup/Settings/Molca InputSystem_Actions.inputactions.meta
+Samples~/QuickSetup/Settings/Standard Lighting Settings.lighting
+Samples~/QuickSetup/Settings/Standard Lighting Settings.lighting.meta
+Samples~/Scenes.meta
+Samples~/Scenes/Auth.unity
+Samples~/Scenes/Auth.unity.meta
+Samples~/Scenes/Home.unity
+Samples~/Scenes/Home.unity.meta
+Samples~/Scenes/Preload.unity
+Samples~/Scenes/Preload.unity.meta
+Samples~/Scenes/Testing.meta
+Samples~/Scenes/Testing/MolcaSDK.SceneTests.asmdef
+Samples~/Scenes/Testing/MolcaSDK.SceneTests.asmdef.meta
+Samples~/Scenes/Testing/Playground.meta
+Samples~/Scenes/Testing/Playground/Playground.unity
+Samples~/Scenes/Testing/Playground/Playground.unity.meta
+Samples~/Scenes/Testing/Playground/Test_Playground.cs
+Samples~/Scenes/Testing/Playground/Test_Playground.cs.meta
+Samples~/Tests/AddressablesFlow.meta
+Samples~/Tests/AddressablesFlow/852545__over_fields_of_wheat__pastoral-acoustic-guitar.wav
+Samples~/Tests/AddressablesFlow/852545__over_fields_of_wheat__pastoral-acoustic-guitar.wav.meta
+Samples~/Tests/AddressablesFlow/Test_Addressable Texture.png
+Samples~/Tests/AddressablesFlow/Test_Addressable Texture.png.meta
+Samples~/Tests/AddressablesFlow/Test_Addressables.unity
+Samples~/Tests/AddressablesFlow/Test_Addressables.unity.meta
+Samples~/Tests/AddressablesFlow/Test_Adressable Prefab.prefab
+Samples~/Tests/AddressablesFlow/Test_Adressable Prefab.prefab.meta
+Samples~/Tests/MediaInfo.meta
+Samples~/Tests/MediaInfo/11.png
+Samples~/Tests/MediaInfo/11.png.meta
+Samples~/Tests/MediaInfo/5.png
+Samples~/Tests/MediaInfo/5.png.meta
+Samples~/Tests/MediaInfo/8.png
+Samples~/Tests/MediaInfo/8.png.meta

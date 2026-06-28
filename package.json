@@ -1,0 +1,29 @@
+{
+  "name": "com.molca.sdk",
+  "version": "0.1.0",
+  "displayName": "Molca SDK",
+  "description": "Shared SDK layer on top of Molca Core: common app scaffolding (auth, media, modals, home, preload, UI building blocks) that the VR/DT SDK forks and projects extend.",
+  "unity": "6000.0",
+  "unityRelease": "0f1",
+  "documentationUrl": "https://github.com/molca-id/framework-unity",
+  "author": {
+    "name": "Molca",
+    "email": "dev@molca.id",
+    "url": "https://molca.id"
+  },
+  "dependencies": {
+    "com.molca.core": "1.9.7"
+  },
+  "samples": [
+    {
+      "displayName": "Sample Scenes",
+      "description": "Example/testing scenes for the shared SDK layer.",
+      "path": "Samples~/Scenes"
+    },
+    {
+      "displayName": "Test Fixtures",
+      "description": "Scene/asset fixtures for SDK manual tests (Addressables flow, media info).",
+      "path": "Samples~/Tests"
+    }
+  ]
+}
