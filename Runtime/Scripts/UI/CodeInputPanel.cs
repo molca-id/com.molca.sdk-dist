@@ -52,16 +52,27 @@ namespace MolcaSDK.UI
 
         private async void Start()
         {
-            // Await initialization before resolving: the fire-and-forget Init would race
-            // GetLocalizedString and the title/error often resolved before the Dynamic
-            // table entries were registered, yielding an empty string.
-            await title.InitAsync("CodeInputPanel_Title");
-            await errorMessage.InitAsync("CodeInputPanel_ErrorMessage");
+            try
+            {
+                // Await initialization before resolving: the fire-and-forget Init would race
+                // GetLocalizedString and the title/error often resolved before the Dynamic
+                // table entries were registered, yielding an empty string.
+                await title.InitAsync("CodeInputPanel_Title");
+                await errorMessage.InitAsync("CodeInputPanel_ErrorMessage");
 
-            if (this == null) return; // destroyed during the awaits
+                if (this == null) return; // destroyed during the awaits
 
-            titleText.SetText(await title.GetLocalizedString());
-            errorText.SetText(await errorMessage.GetLocalizedString());
+                titleText.SetText(await title.GetLocalizedString());
+                errorText.SetText(await errorMessage.GetLocalizedString());
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void SetupButtonListeners()

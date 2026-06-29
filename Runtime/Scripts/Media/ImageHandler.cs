@@ -45,17 +45,39 @@ namespace MolcaSDK.Media
 
         public static async void Load(MediaInfo info)
         {
-            _instance.title.text = string.IsNullOrWhiteSpace(info.name) ? "Image Viewer" : info.name;
-            _instance.SetTextureInternal(await info.GetTexture());
-            _instance._mediaInfo = info;
+            try
+            {
+                _instance.title.text = string.IsNullOrWhiteSpace(info.name) ? "Image Viewer" : info.name;
+                _instance.SetTextureInternal(await info.GetTexture());
+                _instance._mediaInfo = info;
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         public static async void Load(string url, string title = null)
         {
-            Debug.LogWarning("Method not implemented.");
+            try
+            {
+                Debug.LogWarning("Method not implemented.");
 
-            _instance.title.text = string.IsNullOrWhiteSpace(title) ? "Image Viewer" : title;
-            _instance.SetTextureInternal(await RuntimeManager.GetSubsystem<MediaLoader>().GetTexture(url));
+                _instance.title.text = string.IsNullOrWhiteSpace(title) ? "Image Viewer" : title;
+                _instance.SetTextureInternal(await RuntimeManager.GetSubsystem<MediaLoader>().GetTexture(url));
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         public static void Load(Texture texture)

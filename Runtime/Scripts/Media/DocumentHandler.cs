@@ -170,12 +170,23 @@ namespace MolcaSDK.Media
         /// </summary>
         public async void CloseViewer()
         {
-            ToggleVisibility(false);
+            try
+            {
+                ToggleVisibility(false);
     #if VUPLEX_STANDALONE
-            await ClearWebView();
+                await ClearWebView();
     #endif
-            await Awaitable.NextFrameAsync();
-            Screen.orientation = _cachedOrientation;
+                await Awaitable.NextFrameAsync();
+                Screen.orientation = _cachedOrientation;
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         /// <summary>

@@ -19,22 +19,33 @@ namespace MolcaSDK.UI
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private async void Start()
         {
-            minValue = masterVolume.minValue;
-            maxValue = masterVolume.maxValue;
+            try
+            {
+                minValue = masterVolume.minValue;
+                maxValue = masterVolume.maxValue;
 
-            await RuntimeManager.WaitForInitialization();
-            _audioManager = RuntimeManager.GetSubsystem<AudioManager>();
-            if (_audioManager == null) return;
+                await RuntimeManager.WaitForInitialization();
+                _audioManager = RuntimeManager.GetSubsystem<AudioManager>();
+                if (_audioManager == null) return;
 
-            masterVolume.value = _audioManager.MasterVolume * maxValue;
-            musicVolume.value = _audioManager.MusicVolume * maxValue;
-            sfxVolume.value = _audioManager.SFXVolume * maxValue;
-            voiceVolume.value = _audioManager.VoiceVolume * maxValue;
+                masterVolume.value = _audioManager.MasterVolume * maxValue;
+                musicVolume.value = _audioManager.MusicVolume * maxValue;
+                sfxVolume.value = _audioManager.SFXVolume * maxValue;
+                voiceVolume.value = _audioManager.VoiceVolume * maxValue;
 
-            masterVolume.onValueChanged.AddListener(OnMasterVolumeChanged);
-            musicVolume.onValueChanged.AddListener(OnMusicVolumeChanged);
-            sfxVolume.onValueChanged.AddListener(OnSFXVolumeChanged);
-            voiceVolume.onValueChanged.AddListener(OnVoiceVolumeChanged);
+                masterVolume.onValueChanged.AddListener(OnMasterVolumeChanged);
+                musicVolume.onValueChanged.AddListener(OnMusicVolumeChanged);
+                sfxVolume.onValueChanged.AddListener(OnSFXVolumeChanged);
+                voiceVolume.onValueChanged.AddListener(OnVoiceVolumeChanged);
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnMasterVolumeChanged(float value)

@@ -33,10 +33,21 @@ namespace MolcaSDK.UI
 
         private async void Start()
         {
-            await RuntimeManager.WaitForInitialization();
-            
-            RegisterButtons();
-            EnsureValidState();
+            try
+            {
+                await RuntimeManager.WaitForInitialization();
+
+                RegisterButtons();
+                EnsureValidState();
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnDestroy()

@@ -30,27 +30,38 @@ namespace MolcaSDK.UI
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private async void Start()
         {
-            logoutButton.onClick.AddListener(OnLogoutClicked);
-            logoutConfirmationHelper.confirmCallback.AddListener(OnLogoutConfirmed);
-
-            await RuntimeManager.WaitForInitialization();
-            AuthEvents.LoggedOut.Register(OnAuthLoggedOut);
-
-            var authManager = RuntimeManager.GetSubsystem<AuthManager>();
-
-            if (!authManager.IsAuthenticated) return;
-
-            var userData = authManager.GetUserData<SDKUserData>();
-            if (authManager.User.IsGuest)
+            try
             {
-                guestPanel.SetActive(true);
-                guestUsernameText.text = userData.Username;
+                logoutButton.onClick.AddListener(OnLogoutClicked);
+                logoutConfirmationHelper.confirmCallback.AddListener(OnLogoutConfirmed);
+
+                await RuntimeManager.WaitForInitialization();
+                AuthEvents.LoggedOut.Register(OnAuthLoggedOut);
+
+                var authManager = RuntimeManager.GetSubsystem<AuthManager>();
+
+                if (!authManager.IsAuthenticated) return;
+
+                var userData = authManager.GetUserData<SDKUserData>();
+                if (authManager.User.IsGuest)
+                {
+                    guestPanel.SetActive(true);
+                    guestUsernameText.text = userData.Username;
+                }
+                else
+                {
+                    authenticatedPanel.SetActive(true);
+                    usernameText.text = userData.Username;
+                    userIdText.text = userData.UserId;
+                }
             }
-            else
+            catch (System.OperationCanceledException)
             {
-                authenticatedPanel.SetActive(true);
-                usernameText.text = userData.Username;
-                userIdText.text = userData.UserId;
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
 
@@ -71,13 +82,24 @@ namespace MolcaSDK.UI
 
         private async void OnLogoutConfirmed()
         {
-            var modalManager = RuntimeManager.GetService<ModalManager>();
-            modalManager.ShowFullScreenLoading("Logging out...");
-            var success = await RuntimeManager.GetSubsystem<AuthManager>().LogoutAsync();
-            modalManager.HideFullScreenLoading();
-            if (!success)
+            try
             {
-                modalManager.AddMessage("Failed to logout", ModalManager.MessageType.Error);
+                var modalManager = RuntimeManager.GetService<ModalManager>();
+                modalManager.ShowFullScreenLoading("Logging out...");
+                var success = await RuntimeManager.GetSubsystem<AuthManager>().LogoutAsync();
+                modalManager.HideFullScreenLoading();
+                if (!success)
+                {
+                    modalManager.AddMessage("Failed to logout", ModalManager.MessageType.Error);
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
     }

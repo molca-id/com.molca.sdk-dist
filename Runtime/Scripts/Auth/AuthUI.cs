@@ -32,13 +32,24 @@ namespace MolcaSDK.Auth
 
         private async void Start()
         {
-            await RuntimeManager.WaitForInitialization();
-            AuthEvents.LoggedIn.Register(OnAuthLoggedIn);
+            try
+            {
+                await RuntimeManager.WaitForInitialization();
+                AuthEvents.LoggedIn.Register(OnAuthLoggedIn);
 
-            loginButton.onClick.AddListener(OnLoginClicked);
-            guestPanelButton.onClick.AddListener(OnGuestPanelClicked);
-            guestLoginCancelButton.onClick.AddListener(OnGuestCancelClicked);
-            guestLoginButton.onClick.AddListener(OnGuestClicked);
+                loginButton.onClick.AddListener(OnLoginClicked);
+                guestPanelButton.onClick.AddListener(OnGuestPanelClicked);
+                guestLoginCancelButton.onClick.AddListener(OnGuestCancelClicked);
+                guestLoginButton.onClick.AddListener(OnGuestClicked);
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnDestroy()
@@ -53,10 +64,21 @@ namespace MolcaSDK.Auth
 
         public async void OnLoginClicked()
         {
-            var success = await RuntimeManager.GetSubsystem<AuthManager>().LoginAsync(usernameInput.text, passwordInput.text);
-            if (!success)
+            try
             {
-                usernameErrorText.text = "Invalid username or password";
+                var success = await RuntimeManager.GetSubsystem<AuthManager>().LoginAsync(usernameInput.text, passwordInput.text);
+                if (!success)
+                {
+                    usernameErrorText.text = "Invalid username or password";
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
 

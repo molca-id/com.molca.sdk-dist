@@ -114,30 +114,41 @@ namespace MolcaSDK.UI.ContentPackage
 
         private async void Start()
         {
-            await RuntimeManager.WaitForInitialization();
-
-            _service  = _packageSubsystem?.PackageService;
-            _settings = GlobalSettings.GetModule<ContentPackageSettings>();
-
-            if (_service == null)
+            try
             {
-                SetStatus("PackageService unavailable.", _colorFailed);
-                return;
+                await RuntimeManager.WaitForInitialization();
+
+                _service  = _packageSubsystem?.PackageService;
+                _settings = GlobalSettings.GetModule<ContentPackageSettings>();
+
+                if (_service == null)
+                {
+                    SetStatus("PackageService unavailable.", _colorFailed);
+                    return;
+                }
+
+                SubscribeEvents();
+
+                if (_refreshButton   != null) _refreshButton.onClick.AddListener(OnRefreshClicked);
+                if (_installButton   != null) _installButton.onClick.AddListener(OnInstallClicked);
+                if (_uninstallButton != null) _uninstallButton.onClick.AddListener(OnUninstallClicked);
+                if (_updateAllButton != null) _updateAllButton.onClick.AddListener(OnUpdateAllClicked);
+                if (_cancelButton    != null) _cancelButton.onClick.AddListener(OnCancelClicked);
+                if (_freeUpSpaceButton != null) _freeUpSpaceButton.onClick.AddListener(OnFreeUpSpaceClicked);
+
+                RebuildList();
+                RefreshFooter();
+                RefreshFreeUpSpaceButton();
+                SetStatus("Ready", _colorAvailable);
             }
-
-            SubscribeEvents();
-
-            if (_refreshButton   != null) _refreshButton.onClick.AddListener(OnRefreshClicked);
-            if (_installButton   != null) _installButton.onClick.AddListener(OnInstallClicked);
-            if (_uninstallButton != null) _uninstallButton.onClick.AddListener(OnUninstallClicked);
-            if (_updateAllButton != null) _updateAllButton.onClick.AddListener(OnUpdateAllClicked);
-            if (_cancelButton    != null) _cancelButton.onClick.AddListener(OnCancelClicked);
-            if (_freeUpSpaceButton != null) _freeUpSpaceButton.onClick.AddListener(OnFreeUpSpaceClicked);
-
-            RebuildList();
-            RefreshFooter();
-            RefreshFreeUpSpaceButton();
-            SetStatus("Ready", _colorAvailable);
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnDestroy()
@@ -394,26 +405,37 @@ namespace MolcaSDK.UI.ContentPackage
         /// </summary>
         private async void FetchDownloadSizeAsync(string packageId)
         {
-            CancelAndDispose(ref _downloadSizeCts);
+            try
+            {
+                CancelAndDispose(ref _downloadSizeCts);
 
-            // Clear previous value immediately so stale data is never shown.
-            SetText(_detailDownloadSize, "");
+                // Clear previous value immediately so stale data is never shown.
+                SetText(_detailDownloadSize, "");
 
-            var state  = _service?.GetPackageState(packageId);
-            var status = state?.status ?? PackageStatus.Available;
+                var state  = _service?.GetPackageState(packageId);
+                var status = state?.status ?? PackageStatus.Available;
 
-            // Only relevant before content is on-device.
-            if (status == PackageStatus.Installed || status == PackageStatus.Downloading) return;
+                // Only relevant before content is on-device.
+                if (status == PackageStatus.Installed || status == PackageStatus.Downloading) return;
 
-            _downloadSizeCts = new CancellationTokenSource();
-            var ct = _downloadSizeCts.Token;
+                _downloadSizeCts = new CancellationTokenSource();
+                var ct = _downloadSizeCts.Token;
 
-            long bytes = await _service.GetDownloadSizeAsync(packageId);
+                long bytes = await _service.GetDownloadSizeAsync(packageId);
 
-            // Guard: user may have navigated away or CTS was disposed by OnDestroy.
-            if (ct.IsCancellationRequested || packageId != _selectedPackageId) return;
+                // Guard: user may have navigated away or CTS was disposed by OnDestroy.
+                if (ct.IsCancellationRequested || packageId != _selectedPackageId) return;
 
-            SetText(_detailDownloadSize, bytes > 0 ? $"↓ {SizeFormatter.Format(bytes)}" : "");
+                SetText(_detailDownloadSize, bytes > 0 ? $"↓ {SizeFormatter.Format(bytes)}" : "");
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         // ── Footer ────────────────────────────────────────────────────────────
@@ -504,127 +526,171 @@ namespace MolcaSDK.UI.ContentPackage
 
         private async void OnInstallClicked()
         {
-            if (string.IsNullOrEmpty(_selectedPackageId) || _service == null) return;
+            try
+            {
+                if (string.IsNullOrEmpty(_selectedPackageId) || _service == null) return;
 
-            CancelAndDispose(ref _installCts);
-            _installCts = new CancellationTokenSource();
+                CancelAndDispose(ref _installCts);
+                _installCts = new CancellationTokenSource();
 
-            SetStatus($"Installing {_selectedPackageId}…", _colorDownloading);
-            SetButtonsInteractable(false);
+                SetStatus($"Installing {_selectedPackageId}…", _colorDownloading);
+                SetButtonsInteractable(false);
 
-            var progress = new System.Progress<float>(SetProgress);
-            var result   = await _service.InstallPackageAsync(_selectedPackageId, progress, _installCts.Token);
+                var progress = new System.Progress<float>(SetProgress);
+                var result   = await _service.InstallPackageAsync(_selectedPackageId, progress, _installCts.Token);
 
-            SetButtonsInteractable(true);
+                SetButtonsInteractable(true);
 
-            if (result.Success)
-                SetStatus($"Installed: {_selectedPackageId}", _colorInstalled);
-            else if (result.WasCancelled)
-                SetStatus("Cancelled.", _colorAvailable);
-            else
-                SetStatus($"Failed: {result.ErrorMessage}", _colorFailed);
+                if (result.Success)
+                    SetStatus($"Installed: {_selectedPackageId}", _colorInstalled);
+                else if (result.WasCancelled)
+                    SetStatus("Cancelled.", _colorAvailable);
+                else
+                    SetStatus($"Failed: {result.ErrorMessage}", _colorFailed);
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private async void OnUninstallClicked()
         {
-            if (string.IsNullOrEmpty(_selectedPackageId) || _service == null) return;
+            try
+            {
+                if (string.IsNullOrEmpty(_selectedPackageId) || _service == null) return;
 
-            CancelAndDispose(ref _installCts);
-            _installCts = new CancellationTokenSource();
+                CancelAndDispose(ref _installCts);
+                _installCts = new CancellationTokenSource();
 
-            SetStatus($"Uninstalling {_selectedPackageId}…", _colorDownloading);
-            SetButtonsInteractable(false);
+                SetStatus($"Uninstalling {_selectedPackageId}…", _colorDownloading);
+                SetButtonsInteractable(false);
 
-            var result = await _service.UninstallPackageAsync(_selectedPackageId, _installCts.Token);
+                var result = await _service.UninstallPackageAsync(_selectedPackageId, _installCts.Token);
 
-            SetButtonsInteractable(true);
+                SetButtonsInteractable(true);
 
-            if (result.Success)
-                SetStatus($"Uninstalled: {_selectedPackageId}", _colorAvailable);
-            else
-                SetStatus($"Failed: {result.ErrorMessage}", _colorFailed);
+                if (result.Success)
+                    SetStatus($"Uninstalled: {_selectedPackageId}", _colorAvailable);
+                else
+                    SetStatus($"Failed: {result.ErrorMessage}", _colorFailed);
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private async void OnUpdateAllClicked()
         {
-            if (_service == null || _updatingAll) return;
+            try
+            {
+                if (_service == null || _updatingAll) return;
 
-            _updatingAll = true;
-            RefreshUpdateAllButton();
-            SetButtonsInteractable(false);
+                _updatingAll = true;
+                RefreshUpdateAllButton();
+                SetButtonsInteractable(false);
 
-            CancelAndDispose(ref _installCts);
-            _installCts = new CancellationTokenSource();
-            var ct = _installCts.Token;
+                CancelAndDispose(ref _installCts);
+                _installCts = new CancellationTokenSource();
+                var ct = _installCts.Token;
 
-            var toUpdate = new List<string>();
-            if (_settings?.packageConfigs != null)
-                foreach (var cfg in _settings.packageConfigs)
+                var toUpdate = new List<string>();
+                if (_settings?.packageConfigs != null)
+                    foreach (var cfg in _settings.packageConfigs)
+                    {
+                        var state = _service.GetPackageState(cfg.packageId);
+                        if (state?.status == PackageStatus.UpdateAvailable)
+                            toUpdate.Add(cfg.packageId);
+                    }
+
+                int succeeded = 0;
+                int failed    = 0;
+
+                foreach (var packageId in toUpdate)
                 {
-                    var state = _service.GetPackageState(cfg.packageId);
-                    if (state?.status == PackageStatus.UpdateAvailable)
-                        toUpdate.Add(cfg.packageId);
+                    if (ct.IsCancellationRequested) break;
+
+                    SetStatus($"Updating {packageId}… ({succeeded + failed + 1}/{toUpdate.Count})", _colorDownloading);
+
+                    var progress = new System.Progress<float>(v =>
+                    {
+                        if (packageId == _selectedPackageId) SetProgress(v);
+                    });
+
+                    var result = await _service.InstallPackageAsync(packageId, progress, ct);
+
+                    if (result.Success)        succeeded++;
+                    else if (!result.WasCancelled) failed++;
                 }
 
-            int succeeded = 0;
-            int failed    = 0;
+                _updatingAll = false;
+                SetButtonsInteractable(true);
+                RefreshUpdateAllButton();
+                RefreshFreeUpSpaceButton();
+                RefreshDetailPanel();
 
-            foreach (var packageId in toUpdate)
-            {
-                if (ct.IsCancellationRequested) break;
-
-                SetStatus($"Updating {packageId}… ({succeeded + failed + 1}/{toUpdate.Count})", _colorDownloading);
-
-                var progress = new System.Progress<float>(v =>
-                {
-                    if (packageId == _selectedPackageId) SetProgress(v);
-                });
-
-                var result = await _service.InstallPackageAsync(packageId, progress, ct);
-
-                if (result.Success)        succeeded++;
-                else if (!result.WasCancelled) failed++;
+                if (ct.IsCancellationRequested)
+                    SetStatus("Update cancelled.", _colorAvailable);
+                else if (failed > 0)
+                    SetStatus($"Updated {succeeded}/{toUpdate.Count}. {failed} failed.", _colorFailed);
+                else
+                    SetStatus($"All {succeeded} package{(succeeded == 1 ? "" : "s")} updated.", _colorInstalled);
             }
-
-            _updatingAll = false;
-            SetButtonsInteractable(true);
-            RefreshUpdateAllButton();
-            RefreshFreeUpSpaceButton();
-            RefreshDetailPanel();
-
-            if (ct.IsCancellationRequested)
-                SetStatus("Update cancelled.", _colorAvailable);
-            else if (failed > 0)
-                SetStatus($"Updated {succeeded}/{toUpdate.Count}. {failed} failed.", _colorFailed);
-            else
-                SetStatus($"All {succeeded} package{(succeeded == 1 ? "" : "s")} updated.", _colorInstalled);
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private async void OnRefreshClicked()
         {
-            if (_refreshing || _service == null) return;
-            _refreshing = true;
-            if (_refreshButton      != null) _refreshButton.interactable      = false;
-            if (_refreshButtonLabel != null) _refreshButtonLabel.text         = "Refreshing…";
-            SetStatus("Refreshing catalog…", _colorDownloading);
-
-            CancelAndDispose(ref _refreshCts);
-            _refreshCts = new CancellationTokenSource();
-
-            var result = await _service.RefreshCatalogAsync(_refreshCts.Token);
-
-            // OnCatalogRefreshed will reset _refreshing and button state on success.
-            // Handle the failure / cancel paths here.
-            if (!result.Success)
+            try
             {
-                _refreshing = false;
-                if (_refreshButton      != null) _refreshButton.interactable      = true;
-                if (_refreshButtonLabel != null) _refreshButtonLabel.text         = "Refresh Catalog";
+                if (_refreshing || _service == null) return;
+                _refreshing = true;
+                if (_refreshButton      != null) _refreshButton.interactable      = false;
+                if (_refreshButtonLabel != null) _refreshButtonLabel.text         = "Refreshing…";
+                SetStatus("Refreshing catalog…", _colorDownloading);
 
-                if (!result.WasCancelled)
-                    SetStatus($"Refresh failed: {result.ErrorMessage}", _colorFailed);
-                else
-                    SetStatus("Refresh cancelled.", _colorAvailable);
+                CancelAndDispose(ref _refreshCts);
+                _refreshCts = new CancellationTokenSource();
+
+                var result = await _service.RefreshCatalogAsync(_refreshCts.Token);
+
+                // OnCatalogRefreshed will reset _refreshing and button state on success.
+                // Handle the failure / cancel paths here.
+                if (!result.Success)
+                {
+                    _refreshing = false;
+                    if (_refreshButton      != null) _refreshButton.interactable      = true;
+                    if (_refreshButtonLabel != null) _refreshButtonLabel.text         = "Refresh Catalog";
+
+                    if (!result.WasCancelled)
+                        SetStatus($"Refresh failed: {result.ErrorMessage}", _colorFailed);
+                    else
+                        SetStatus("Refresh cancelled.", _colorAvailable);
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
 

@@ -168,10 +168,21 @@ namespace MolcaSDK.Media
 
         public static async void Load(MediaInfo info)
         {
-            _instance.ToggleVisibility(true);
-            _instance.title.text = string.IsNullOrWhiteSpace(info.name) ? "Video Player" : info.name;
-            if (!await info.PrepareVideo(_instance.player))
-                Debug.LogError($"Failed to load video from media info {info}");
+            try
+            {
+                _instance.ToggleVisibility(true);
+                _instance.title.text = string.IsNullOrWhiteSpace(info.name) ? "Video Player" : info.name;
+                if (!await info.PrepareVideo(_instance.player))
+                    Debug.LogError($"Failed to load video from media info {info}");
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         public static void Load(string url, string title = null)

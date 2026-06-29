@@ -26,11 +26,22 @@ namespace MolcaSDK.Utilities
 
         public async void InvokeEvent()
         {
-            await Awaitable.WaitForSecondsAsync(delay);
-            onDelayedEvent.Invoke();
-            if (destroyAfterInvoke)
+            try
             {
-                Destroy(destroyGameObject ? gameObject : this);
+                await Awaitable.WaitForSecondsAsync(delay);
+                onDelayedEvent.Invoke();
+                if (destroyAfterInvoke)
+                {
+                    Destroy(destroyGameObject ? gameObject : this);
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
     }

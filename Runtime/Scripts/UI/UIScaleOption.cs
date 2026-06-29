@@ -19,17 +19,28 @@ namespace MolcaSDK.UI
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         private async void Start()
         {
-            await RuntimeManager.WaitForInitialization();
-            await Awaitable.WaitForSecondsAsync(0.1f);
-
-            var scaleModule = GlobalSettings.GetModule<CanvasScaleModule>();
-            foreach (var option in scaleOptions)
+            try
             {
-                if(scaleModule.UIScaleNormalized == option.scale)
+                await RuntimeManager.WaitForInitialization();
+                await Awaitable.WaitForSecondsAsync(0.1f);
+
+                var scaleModule = GlobalSettings.GetModule<CanvasScaleModule>();
+                foreach (var option in scaleOptions)
                 {
-                    option.buttonState.SetState(true);
+                    if(scaleModule.UIScaleNormalized == option.scale)
+                    {
+                        option.buttonState.SetState(true);
+                    }
+                    option.buttonState.onClicked += OnScaleOptionClicked;
                 }
-                option.buttonState.onClicked += OnScaleOptionClicked;
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
 

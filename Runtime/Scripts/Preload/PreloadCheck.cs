@@ -30,6 +30,8 @@ namespace MolcaSDK.Preload
 
         private async void Start()
         {
+            try
+            {
             await RuntimeManager.WaitForInitialization();
             _sceneLoader = RuntimeManager.GetService<ISceneLoader>();
 
@@ -85,6 +87,15 @@ namespace MolcaSDK.Preload
                 await FadeOut(background);
 
                 _ = _sceneLoader.UnloadScene(preloadSceneName);
+            }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
         }
 

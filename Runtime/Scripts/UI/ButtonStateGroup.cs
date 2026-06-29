@@ -14,11 +14,22 @@ namespace MolcaSDK.UI
 
         private async void Start()
         {
-            await RuntimeManager.WaitForInitialization();
-            foreach (var e in GetComponentsInChildren<ButtonState>(true))
-                if(!e.exludeFromGroup)
-                    Register(e);
-            EnsureValidState();
+            try
+            {
+                await RuntimeManager.WaitForInitialization();
+                foreach (var e in GetComponentsInChildren<ButtonState>(true))
+                    if(!e.exludeFromGroup)
+                        Register(e);
+                EnsureValidState();
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         public void Register(ButtonState buttonState)

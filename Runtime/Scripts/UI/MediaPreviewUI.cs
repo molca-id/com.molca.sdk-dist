@@ -27,31 +27,42 @@ namespace MolcaSDK.UI
 
         public async void LoadPreview(MediaInfo info, bool cacheTexture = false)
         {
-            if (info == null)
-                failPreview.SetActive(true);
-
-            if (MediaInfo == info) 
-                return;
-            Clear();
-
-            MediaInfo = info;
-            loadingUI.SetActive(true);
-
-            Texture2D texture = await MediaInfo.GetTexture();
-            if (info != MediaInfo) // Check if preview has ben refreshed with a new media info
+            try
             {
-                Debug.Log($"Abort preview operation, media missmatch, op: {info.id}, current: {MediaInfo?.id}");
-                return;
+                if (info == null)
+                    failPreview.SetActive(true);
+
+                if (MediaInfo == info)
+                    return;
+                Clear();
+
+                MediaInfo = info;
+                loadingUI.SetActive(true);
+
+                Texture2D texture = await MediaInfo.GetTexture();
+                if (info != MediaInfo) // Check if preview has ben refreshed with a new media info
+                {
+                    Debug.Log($"Abort preview operation, media missmatch, op: {info.id}, current: {MediaInfo?.id}");
+                    return;
+                }
+
+                loadingUI.SetActive(false);
+                if(cacheTexture)
+                    _cachedTexture = CopyTexture(texture);
+
+                if(texture)
+                    SetTexture(cacheTexture ? _cachedTexture : texture);
+                else
+                    failPreview.SetActive(true);
             }
-
-            loadingUI.SetActive(false);
-            if(cacheTexture)
-                _cachedTexture = CopyTexture(texture);
-
-            if(texture)
-                SetTexture(cacheTexture ? _cachedTexture : texture);
-            else
-                failPreview.SetActive(true);
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         public void SetTexture(Texture2D texture)

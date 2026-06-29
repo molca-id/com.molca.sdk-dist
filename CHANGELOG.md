@@ -2,6 +2,22 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.0] — Unreleased
+
+### Changed
+- **SDK layer hardening pass (Sprint 66).** First quality pass since the Sprint-60 extraction, with no
+  fork-facing API changes:
+  - Removed the unused `GameManager.Instance` static singleton (no callers); kept the `RuntimeSubsystem`
+    and its connection-error modal. A reflection test now fails the build if a public static self-typed
+    singleton is reintroduced.
+  - Async contract: every previously-unguarded `async void` Unity entry point (~17 runtime files) is now a
+    thin shim wrapped in `try/catch` — `OperationCanceledException` handled quietly, real failures logged
+    via `Debug.LogException`.
+  - `MediaLoader` load failures now log the full exception (stack) instead of `e.Message` only.
+  - Audit recorded internally (`Documentation~/internal/SDK_HARDENING_AUDIT.md`, not shipped): `.Result`
+    usages are `AsyncOperationHandle` (not blocking `Task`); `FindObjectOfType` is absent. Blanket XML-doc
+    coverage continues as an ongoing fill-in.
+
 ## [0.1.3] — Unreleased
 
 ### Changed

@@ -20,28 +20,39 @@ namespace MolcaSDK.UI
 
         private async void Start()
         {
-            await RuntimeManager.WaitForInitialization();
-
-            dropdown = GetComponent<TMP_Dropdown>();
-            _schemes = RuntimeManager.GetService<IColorSchemeService>();
-            if (_schemes == null)
+            try
             {
-                Debug.LogWarning("ColorSchemeDropdown: IColorSchemeService not available.");
-                return;
-            }
+                await RuntimeManager.WaitForInitialization();
 
-            if (_schemes.SchemeCount == 0)
+                dropdown = GetComponent<TMP_Dropdown>();
+                _schemes = RuntimeManager.GetService<IColorSchemeService>();
+                if (_schemes == null)
+                {
+                    Debug.LogWarning("ColorSchemeDropdown: IColorSchemeService not available.");
+                    return;
+                }
+
+                if (_schemes.SchemeCount == 0)
+                {
+                    Debug.LogWarning("ColorSchemeDropdown: No color schemes available in ColorSchemeManager.");
+                    return;
+                }
+
+                PopulateDropdown();
+
+                dropdown.onValueChanged.AddListener(OnSchemeChanged);
+
+                // Subscribe to external scheme changes to keep dropdown in sync
+                _schemes.SchemeChanged += OnExternalSchemeChanged;
+            }
+            catch (System.OperationCanceledException)
             {
-                Debug.LogWarning("ColorSchemeDropdown: No color schemes available in ColorSchemeManager.");
-                return;
+                // cancellation is not an error — exit quietly
             }
-
-            PopulateDropdown();
-
-            dropdown.onValueChanged.AddListener(OnSchemeChanged);
-
-            // Subscribe to external scheme changes to keep dropdown in sync
-            _schemes.SchemeChanged += OnExternalSchemeChanged;
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnDestroy()

@@ -12,12 +12,23 @@ namespace MolcaSDK.UI
 
         async void Start()
         {
-            canvasScaler = GetComponent<CanvasScaler>();
-            await RuntimeManager.WaitForInitialization();
-            var scaleModule = GlobalSettings.GetModule<CanvasScaleModule>();
-            canvasScaler.scaleFactor = scaleModule.UIScale;
+            try
+            {
+                canvasScaler = GetComponent<CanvasScaler>();
+                await RuntimeManager.WaitForInitialization();
+                var scaleModule = GlobalSettings.GetModule<CanvasScaleModule>();
+                canvasScaler.scaleFactor = scaleModule.UIScale;
 
-            scaleModule.onUiScaleChanged += OnUiScaleChanged;
+                scaleModule.onUiScaleChanged += OnUiScaleChanged;
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnDestroy()

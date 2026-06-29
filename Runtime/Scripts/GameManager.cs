@@ -7,25 +7,24 @@ using Molca.Localization;
 
 namespace MolcaSDK
 {
+    /// <summary>
+    /// SDK app-level subsystem that surfaces backend connection failures as a localized confirmation modal.
+    /// Resolved like any <see cref="RuntimeSubsystem"/> via <c>RuntimeManager.GetSubsystem&lt;GameManager&gt;()</c>;
+    /// it holds no static state.
+    /// </summary>
+    /// <remarks>
+    /// Subscribes to <see cref="IHttpClient.ConnectionError"/> once the runtime is initialized and, when
+    /// enabled, shows <see cref="connectionFailConfirmation"/>. Wired through <c>SDK Subsystems.prefab</c>.
+    /// </remarks>
     public class GameManager : RuntimeSubsystem
     {
-        private static GameManager _instance;
-        public static GameManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    Debug.LogError("GameManager is not initialized!");
-                return _instance;
-            }
-        }
-
         [Header("Connection Settings")]
         [SerializeField] private bool enableConnectionFailConfirmation;
         [SerializeField] private ModalConfirmationHelper connectionFailConfirmation;
 
         private bool _isInitialized;
 
+        /// <inheritdoc/>
         public override void Initialize(Action<IRuntimeSubsystem> finishCallback)
         {
             if (_isInitialized)
@@ -35,7 +34,6 @@ namespace MolcaSDK
                 return;
             }
 
-            _instance = this;
             _isInitialized = true;
 
             SetupEventListeners();
@@ -87,11 +85,6 @@ namespace MolcaSDK
         {
             if (_http != null)
                 _http.ConnectionError -= OnConnectionError;
-            
-            if (_instance == this)
-            {
-                _instance = null;
-            }
         }
     }
 }

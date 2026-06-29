@@ -104,7 +104,8 @@ namespace MolcaSDK.Media
             }
             catch (Exception e)
             {
-                Debug.LogError($"Exception loading texture from url: {url}. Error: {e.Message}");
+                Debug.LogError($"Exception loading texture from url: {url}.");
+                Debug.LogException(e);
             }
             finally
             {
@@ -172,7 +173,8 @@ namespace MolcaSDK.Media
             }
             catch (Exception e)
             {
-                Debug.LogError($"Exception loading video from url: {url}. Error: {e.Message}");
+                Debug.LogError($"Exception loading video from url: {url}.");
+                Debug.LogException(e);
             }
             finally
             {
@@ -244,7 +246,8 @@ namespace MolcaSDK.Media
             }
             catch (Exception e)
             {
-                Debug.LogError($"Exception loading document from url: {url}. Error: {e.Message}");
+                Debug.LogError($"Exception loading document from url: {url}.");
+                Debug.LogException(e);
             }
             finally
             {

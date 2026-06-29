@@ -66,12 +66,23 @@ namespace MolcaSDK.UI
 
         private async void Start()
         {
-            //Debug.Log($"{gameObject.name} => Waiting RM Ready.");
-            await RuntimeManager.WaitForInitialization();
-            //yield return new WaitUntil(RuntimeManager.IsReady); BUG: Home's ListView Toggle don't go pass this line
-            isOn = isOn;
-            GetComponent<Button>().onClick.AddListener(OnClicked);
-            //Debug.Log($"{gameObject.name} => RM Ready.");
+            try
+            {
+                //Debug.Log($"{gameObject.name} => Waiting RM Ready.");
+                await RuntimeManager.WaitForInitialization();
+                //yield return new WaitUntil(RuntimeManager.IsReady); BUG: Home's ListView Toggle don't go pass this line
+                isOn = isOn;
+                GetComponent<Button>().onClick.AddListener(OnClicked);
+                //Debug.Log($"{gameObject.name} => RM Ready.");
+            }
+            catch (System.OperationCanceledException)
+            {
+                // cancellation is not an error — exit quietly
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         private void OnClicked()
