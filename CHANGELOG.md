@@ -2,6 +2,16 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.1] — 2026-07-01
+
+### Changed
+- Bump the `com.molca.core` dependency pin to `1.11.1` (tested against current Core).
+
+### Fixed
+- **`MediaLoader` HTTP-asset anti-pattern.** The media load path now goes through the framework's
+  HTTP-request mechanism instead of the previous non-conforming call, per Core networking conventions;
+  `VideoHandler` adjusted to match.
+
 ## [0.2.0] — Unreleased
 
 ### Changed

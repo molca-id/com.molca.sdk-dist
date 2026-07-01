@@ -11,7 +11,7 @@ namespace MolcaSDK.Media
 {
     public class VideoHandler : MonoBehaviour
     {
-        public static VideoHandler _instance;
+        private static VideoHandler _instance;
 
         [SerializeField]
         private TextMeshProUGUI title;

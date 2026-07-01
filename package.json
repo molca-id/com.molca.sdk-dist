@@ -1,6 +1,6 @@
 {
   "name": "com.molca.sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "displayName": "Molca SDK",
   "description": "Shared SDK layer on top of Molca Core: common app scaffolding (auth, media, modals, home, preload, UI building blocks) that the VR/DT SDK forks and projects extend.",
   "unity": "6000.0",
@@ -12,7 +12,7 @@
     "url": "https://molca.id"
   },
   "dependencies": {
-    "com.molca.core": "1.9.8",
+    "com.molca.core": "1.11.1",
     "com.unity.ugui": "2.0.0",
     "com.unity.modules.video": "1.0.0"
   },

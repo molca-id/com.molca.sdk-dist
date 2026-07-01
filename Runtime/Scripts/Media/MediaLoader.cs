@@ -14,6 +14,10 @@ namespace MolcaSDK.Media
         // Instance API of the network cache (Sprint 5.1 de-static).
         private static ICacheService Cache => RuntimeManager.GetService<ICacheService>();
 
+        // Instance API of the HTTP subsystem — used to send per-request clones so the
+        // configured HttpRequestAsset ScriptableObjects are never mutated at runtime.
+        private static IHttpClient HttpService => RuntimeManager.GetService<IHttpClient>();
+
         [Header("HTTP Request Assets")]
         [SerializeField]
         private HttpRequestAsset getDocumentRequest;
@@ -66,10 +70,11 @@ namespace MolcaSDK.Media
                 return null;
             }
 
-            // Configure the request
-            getTexture2DRequest.request.url = url.Replace("\\", "");
-            getTexture2DRequest.request.expectedResponseType = ResponseType.Texture;
-            getTexture2DRequest.AddHeader("Authorization", $"Bearer {_authManager.AuthToken}");
+            // Clone the read-only asset before mutating — the ScriptableObject must never be written at runtime.
+            var request = getTexture2DRequest.CreateRequest();
+            request.url = url.Replace("\\", "");
+            request.expectedResponseType = ResponseType.Texture;
+            request.AddHeader("Authorization", $"Bearer {_authManager.AuthToken}");
 
             Texture2D data = null;
             var loading = _modalManager.AddLoading(url);
@@ -79,7 +84,7 @@ namespace MolcaSDK.Media
                 // Use Send with progress callback for better progress tracking
                 var tcs = new AwaitableCompletionSource<HttpResponse>();
                 
-                getTexture2DRequest.Send(
+                HttpService.Send(request,
                     onSuccess: (response) => {
                         if (response.texture != null)
                         {
@@ -135,10 +140,11 @@ namespace MolcaSDK.Media
                 return await Cache.GetCachePath(cacheId);
             }
 
-            // Configure the request
-            getVideoRequest.request.url = url.Replace("\\", "");
-            getVideoRequest.request.expectedResponseType = ResponseType.Binary;
-            getVideoRequest.AddHeader("Authorization", $"Bearer {_authManager.AuthToken}");
+            // Clone the read-only asset before mutating — the ScriptableObject must never be written at runtime.
+            var request = getVideoRequest.CreateRequest();
+            request.url = url.Replace("\\", "");
+            request.expectedResponseType = ResponseType.Binary;
+            request.AddHeader("Authorization", $"Bearer {_authManager.AuthToken}");
 
             byte[] data = null;
             var loading = _modalManager.AddLoading(url);
@@ -148,7 +154,7 @@ namespace MolcaSDK.Media
                 // Use Send with progress callback for better progress tracking
                 var tcs = new AwaitableCompletionSource<HttpResponse>();
                 
-                getVideoRequest.Send(
+                HttpService.Send(request,
                     onSuccess: (response) => {
                         if (response.rawData != null)
                         {
@@ -208,10 +214,11 @@ namespace MolcaSDK.Media
                 return await Cache.GetCachePath(cacheId);
             }
 
-            // Configure the request
-            getDocumentRequest.request.url = url.Replace("\\", "");
-            getDocumentRequest.request.expectedResponseType = ResponseType.Binary;
-            getDocumentRequest.AddHeader("Authorization", $"Bearer {_authManager.AuthToken}");
+            // Clone the read-only asset before mutating — the ScriptableObject must never be written at runtime.
+            var request = getDocumentRequest.CreateRequest();
+            request.url = url.Replace("\\", "");
+            request.expectedResponseType = ResponseType.Binary;
+            request.AddHeader("Authorization", $"Bearer {_authManager.AuthToken}");
 
             byte[] data = null;
             var loading = _modalManager.AddLoading(url);
@@ -221,7 +228,7 @@ namespace MolcaSDK.Media
                 // Use Send with progress callback for better progress tracking
                 var tcs = new AwaitableCompletionSource<HttpResponse>();
                 
-                getDocumentRequest.Send(
+                HttpService.Send(request,
                     onSuccess: (response) => {
                         if (response.rawData != null)
                         {
