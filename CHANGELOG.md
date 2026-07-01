@@ -2,6 +2,21 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.2] — 2026-07-01
+
+### Fixed
+- **Confirmation modals moved into the SDK layer, where their dependency actually lives.**
+  `Confirmation Short.prefab` and `Confirmation Detailed.prefab` were Prefab Variants of
+  `com.molca.sdk`'s `Runtime/Prefabs/UI/Button.prefab`, but the prefabs themselves shipped in
+  `com.molca.core` — a reverse layering dependency (Core → SDK) that architecture.md forbids. On a
+  fresh install this raced with asset import order and surfaced as a "missing Prefab" console error
+  for both variants. They're now under `Runtime/Prefabs/Modals/` in this package, guids unchanged
+  (git-mv only, so all existing references resolve automatically); `com.molca.core`'s `Modals` folder
+  keeps only the assets it doesn't depend on the SDK for (`Modal Loading`, `Modal Message`).
+
+### Changed
+- Bump the `com.molca.core` dependency pin to `1.11.3` (Onboarding Wizard + the Confirmation-prefab fix).
+
 ## [0.2.1] — 2026-07-01
 
 ### Changed
