@@ -2,6 +2,13 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.3] — 2026-07-04
+
+### Added
+- **Default UI Token Catalog (Sprint 57.5).** Authored the SDK's `MolcaUiTokenCatalog` asset
+  (`Runtime/Settings/UI Tokens/UI Token Catalog.asset`) — the concrete token values Core's abstract
+  registry expects (Core ships the engine but no values). Includes the `control/button-icon` token.
+
 ## [0.2.2] — 2026-07-01
 
 ### Fixed

@@ -1,8 +1,8 @@
-com.molca.sdk@0.2.2
+﻿com.molca.sdk@0.2.3
 Depends on com.molca.core@1.11.3 (consumer resolves Core dist Git-URL)
-Published: 2026-07-01 09:35:31Z
-Source commit: e0d2dad7
-Files: 824
+Published: 2026-07-15 14:21:29Z
+Source commit: ec5e2165
+Files: 827
 
 CHANGELOG.md
 CHANGELOG.md.meta
@@ -35,6 +35,8 @@ Editor/Scripts/ShaderVariant/ShaderVariantSplitTool.cs
 Editor/Scripts/ShaderVariant/ShaderVariantSplitTool.cs.meta
 Editor/Scripts/ShaderVariant/VariantCombinator.cs
 Editor/Scripts/ShaderVariant/VariantCombinator.cs.meta
+package.json
+package.json.meta
 README.md
 README.md.meta
 Runtime.meta
@@ -89,18 +91,10 @@ Runtime/Art/UIs/Background_Full_2x.png.meta
 Runtime/Art/UIs/Background_Half.png
 Runtime/Art/UIs/Background_Half.png.meta
 Runtime/Art/UIs/Icons.meta
-Runtime/Art/UIs/Icons/ArrowLeft.png
-Runtime/Art/UIs/Icons/ArrowLeft.png.meta
-Runtime/Art/UIs/Icons/Frame 2609849.png
-Runtime/Art/UIs/Icons/Frame 2609849.png.meta
-Runtime/Art/UIs/Icons/Read.png
-Runtime/Art/UIs/Icons/Read.png.meta
-Runtime/Art/UIs/Icons/Setting.png
-Runtime/Art/UIs/Icons/Setting.png.meta
-Runtime/Art/UIs/Icons/User.png
-Runtime/Art/UIs/Icons/User.png.meta
 Runtime/Art/UIs/Icons/animation.png
 Runtime/Art/UIs/Icons/animation.png.meta
+Runtime/Art/UIs/Icons/ArrowLeft.png
+Runtime/Art/UIs/Icons/ArrowLeft.png.meta
 Runtime/Art/UIs/Icons/arrow-right-on-rectangle.png
 Runtime/Art/UIs/Icons/arrow-right-on-rectangle.png.meta
 Runtime/Art/UIs/Icons/bars-3.png
@@ -111,16 +105,18 @@ Runtime/Art/UIs/Icons/chevron-up.png
 Runtime/Art/UIs/Icons/chevron-up.png.meta
 Runtime/Art/UIs/Icons/delete.png
 Runtime/Art/UIs/Icons/delete.png.meta
-Runtime/Art/UIs/Icons/eye-invisible.png
-Runtime/Art/UIs/Icons/eye-invisible.png.meta
 Runtime/Art/UIs/Icons/eye.png
 Runtime/Art/UIs/Icons/eye.png.meta
+Runtime/Art/UIs/Icons/eye-invisible.png
+Runtime/Art/UIs/Icons/eye-invisible.png.meta
 Runtime/Art/UIs/Icons/fa6-solid_helmet-safety.png
 Runtime/Art/UIs/Icons/fa6-solid_helmet-safety.png.meta
 Runtime/Art/UIs/Icons/fa7-solid_helmet-safety.png
 Runtime/Art/UIs/Icons/fa7-solid_helmet-safety.png.meta
 Runtime/Art/UIs/Icons/fluent_document-20-filled.png
 Runtime/Art/UIs/Icons/fluent_document-20-filled.png.meta
+Runtime/Art/UIs/Icons/Frame 2609849.png
+Runtime/Art/UIs/Icons/Frame 2609849.png.meta
 Runtime/Art/UIs/Icons/fullscreen.png
 Runtime/Art/UIs/Icons/fullscreen.png.meta
 Runtime/Art/UIs/Icons/fullscreen_exit.png
@@ -129,10 +125,6 @@ Runtime/Art/UIs/Icons/game-icons_auto-repair.png
 Runtime/Art/UIs/Icons/game-icons_auto-repair.png.meta
 Runtime/Art/UIs/Icons/ic_round-view-in-ar.png
 Runtime/Art/UIs/Icons/ic_round-view-in-ar.png.meta
-Runtime/Art/UIs/Icons/icon-multi.png
-Runtime/Art/UIs/Icons/icon-multi.png.meta
-Runtime/Art/UIs/Icons/icon-single.png
-Runtime/Art/UIs/Icons/icon-single.png.meta
 Runtime/Art/UIs/Icons/icon_access_time.png
 Runtime/Art/UIs/Icons/icon_access_time.png.meta
 Runtime/Art/UIs/Icons/icon_arrow_forward.png
@@ -173,6 +165,10 @@ Runtime/Art/UIs/Icons/icon_timer.png
 Runtime/Art/UIs/Icons/icon_timer.png.meta
 Runtime/Art/UIs/Icons/iconamoon_check.png
 Runtime/Art/UIs/Icons/iconamoon_check.png.meta
+Runtime/Art/UIs/Icons/icon-multi.png
+Runtime/Art/UIs/Icons/icon-multi.png.meta
+Runtime/Art/UIs/Icons/icon-single.png
+Runtime/Art/UIs/Icons/icon-single.png.meta
 Runtime/Art/UIs/Icons/information-circle.png
 Runtime/Art/UIs/Icons/information-circle.png.meta
 Runtime/Art/UIs/Icons/language.png
@@ -181,10 +177,10 @@ Runtime/Art/UIs/Icons/layout-list.png
 Runtime/Art/UIs/Icons/layout-list.png.meta
 Runtime/Art/UIs/Icons/list-bullet.png
 Runtime/Art/UIs/Icons/list-bullet.png.meta
-Runtime/Art/UIs/Icons/loading-icon-128x.png
-Runtime/Art/UIs/Icons/loading-icon-128x.png.meta
 Runtime/Art/UIs/Icons/loading-icon.png
 Runtime/Art/UIs/Icons/loading-icon.png.meta
+Runtime/Art/UIs/Icons/loading-icon-128x.png
+Runtime/Art/UIs/Icons/loading-icon-128x.png.meta
 Runtime/Art/UIs/Icons/lucide｜app-window.png
 Runtime/Art/UIs/Icons/lucide｜app-window.png.meta
 Runtime/Art/UIs/Icons/lucide｜arrow-up-down.png
@@ -217,10 +213,14 @@ Runtime/Art/UIs/Icons/radio-off.png
 Runtime/Art/UIs/Icons/radio-off.png.meta
 Runtime/Art/UIs/Icons/radio-on.png
 Runtime/Art/UIs/Icons/radio-on.png.meta
+Runtime/Art/UIs/Icons/Read.png
+Runtime/Art/UIs/Icons/Read.png.meta
 Runtime/Art/UIs/Icons/repeat.png
 Runtime/Art/UIs/Icons/repeat.png.meta
 Runtime/Art/UIs/Icons/ri_equalizer-line.png
 Runtime/Art/UIs/Icons/ri_equalizer-line.png.meta
+Runtime/Art/UIs/Icons/Setting.png
+Runtime/Art/UIs/Icons/Setting.png.meta
 Runtime/Art/UIs/Icons/solar_scale-broken.png
 Runtime/Art/UIs/Icons/solar_scale-broken.png.meta
 Runtime/Art/UIs/Icons/sound.png
@@ -233,6 +233,8 @@ Runtime/Art/UIs/Icons/tabler_number-123.png
 Runtime/Art/UIs/Icons/tabler_number-123.png.meta
 Runtime/Art/UIs/Icons/tabler_switch-vertical.png
 Runtime/Art/UIs/Icons/tabler_switch-vertical.png.meta
+Runtime/Art/UIs/Icons/User.png
+Runtime/Art/UIs/Icons/User.png.meta
 Runtime/Art/UIs/Icons/videocam_off.png
 Runtime/Art/UIs/Icons/videocam_off.png.meta
 Runtime/Art/UIs/Icons/videocam_on.png
@@ -365,10 +367,10 @@ Runtime/Scripts/Media/Http Request/LoadTexture_HttpRequest.asset
 Runtime/Scripts/Media/Http Request/LoadTexture_HttpRequest.asset.meta
 Runtime/Scripts/Media/Http Request/LoadVideo_HttpRequest.asset
 Runtime/Scripts/Media/Http Request/LoadVideo_HttpRequest.asset.meta
-Runtime/Scripts/Media/IMediaHandler.cs
-Runtime/Scripts/Media/IMediaHandler.cs.meta
 Runtime/Scripts/Media/ImageHandler.cs
 Runtime/Scripts/Media/ImageHandler.cs.meta
+Runtime/Scripts/Media/IMediaHandler.cs
+Runtime/Scripts/Media/IMediaHandler.cs.meta
 Runtime/Scripts/Media/MediaInfo.cs
 Runtime/Scripts/Media/MediaInfo.cs.meta
 Runtime/Scripts/Media/MediaLoader.cs
@@ -385,10 +387,10 @@ Runtime/Scripts/Modal/DatePicker/DatePickerModal.cs
 Runtime/Scripts/Modal/DatePicker/DatePickerModal.cs.meta
 Runtime/Scripts/Modal/DatePicker/DatePickerModalHelper.cs
 Runtime/Scripts/Modal/DatePicker/DatePickerModalHelper.cs.meta
-Runtime/Scripts/Modal/MODAL_TYPES_SUMMARY.md
-Runtime/Scripts/Modal/MODAL_TYPES_SUMMARY.md.meta
 Runtime/Scripts/Modal/MediaConfirmationModal.cs
 Runtime/Scripts/Modal/MediaConfirmationModal.cs.meta
+Runtime/Scripts/Modal/MODAL_TYPES_SUMMARY.md
+Runtime/Scripts/Modal/MODAL_TYPES_SUMMARY.md.meta
 Runtime/Scripts/Modal/Notification.meta
 Runtime/Scripts/Modal/Notification/NotificationHelper.cs
 Runtime/Scripts/Modal/Notification/NotificationHelper.cs.meta
@@ -439,12 +441,12 @@ Runtime/Scripts/UI/ColorSchemeToggle.cs.meta
 Runtime/Scripts/UI/ContentPackage.meta
 Runtime/Scripts/UI/ContentPackage/ContentPackageManagerUI.cs
 Runtime/Scripts/UI/ContentPackage/ContentPackageManagerUI.cs.meta
-Runtime/Scripts/UI/ContentPackage/PREFAB_SETUP.md
-Runtime/Scripts/UI/ContentPackage/PREFAB_SETUP.md.meta
 Runtime/Scripts/UI/ContentPackage/PackageContentButton.cs
 Runtime/Scripts/UI/ContentPackage/PackageContentButton.cs.meta
 Runtime/Scripts/UI/ContentPackage/PackageListItemUI.cs
 Runtime/Scripts/UI/ContentPackage/PackageListItemUI.cs.meta
+Runtime/Scripts/UI/ContentPackage/PREFAB_SETUP.md
+Runtime/Scripts/UI/ContentPackage/PREFAB_SETUP.md.meta
 Runtime/Scripts/UI/LanguageDropdown.cs
 Runtime/Scripts/UI/LanguageDropdown.cs.meta
 Runtime/Scripts/UI/MediaInfoCycle.cs
@@ -498,14 +500,14 @@ Runtime/Scripts/Utilities/VersionText.cs
 Runtime/Scripts/Utilities/VersionText.cs.meta
 Runtime/Settings.meta
 Runtime/Settings/Audio.meta
-Runtime/Settings/Audio/BGM Audio Library.asset
-Runtime/Settings/Audio/BGM Audio Library.asset.meta
 Runtime/Settings/Audio/Base BGM Collection.asset
 Runtime/Settings/Audio/Base BGM Collection.asset.meta
 Runtime/Settings/Audio/Base SFX Collection.asset
 Runtime/Settings/Audio/Base SFX Collection.asset.meta
 Runtime/Settings/Audio/Base VO Collection.asset
 Runtime/Settings/Audio/Base VO Collection.asset.meta
+Runtime/Settings/Audio/BGM Audio Library.asset
+Runtime/Settings/Audio/BGM Audio Library.asset.meta
 Runtime/Settings/Audio/SFX Audio Library.asset
 Runtime/Settings/Audio/SFX Audio Library.asset.meta
 Runtime/Settings/Audio/Voice Audio Library.asset
@@ -516,12 +518,12 @@ Runtime/Settings/Build/Build Settings.asset.meta
 Runtime/Settings/Build/Profiles.meta
 Runtime/Settings/Build/Profiles/Molca Android - Default.asset
 Runtime/Settings/Build/Profiles/Molca Android - Default.asset.meta
+Runtime/Settings/Build/Profiles/Molca iOS - Default.asset
+Runtime/Settings/Build/Profiles/Molca iOS - Default.asset.meta
 Runtime/Settings/Build/Profiles/Molca PC - Default.asset
 Runtime/Settings/Build/Profiles/Molca PC - Default.asset.meta
 Runtime/Settings/Build/Profiles/Molca Quest - Default.asset
 Runtime/Settings/Build/Profiles/Molca Quest - Default.asset.meta
-Runtime/Settings/Build/Profiles/Molca iOS - Default.asset
-Runtime/Settings/Build/Profiles/Molca iOS - Default.asset.meta
 Runtime/Settings/Build/Version Settings.asset
 Runtime/Settings/Build/Version Settings.asset.meta
 Runtime/Settings/ContentPackage.meta
@@ -530,6 +532,15 @@ Runtime/Settings/ContentPackage/CloudflareR2StorageProvider.asset.meta
 Runtime/Settings/ContentPackage/ContentPackageBuildConfig.asset
 Runtime/Settings/ContentPackage/ContentPackageBuildConfig.asset.meta
 Runtime/Settings/Fonts.meta
+Runtime/Settings/Fonts/Molca.meta
+Runtime/Settings/Fonts/Molca/Molca-Bold SDF.asset
+Runtime/Settings/Fonts/Molca/Molca-Bold SDF.asset.meta
+Runtime/Settings/Fonts/Molca/Molca-Bold.otf
+Runtime/Settings/Fonts/Molca/Molca-Bold.otf.meta
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative SDF.asset
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative SDF.asset.meta
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative.otf
+Runtime/Settings/Fonts/Molca/Molca-Medium-alternative.otf.meta
 Runtime/Settings/Fonts/Molca-Body LTSI.asset
 Runtime/Settings/Fonts/Molca-Body LTSI.asset.meta
 Runtime/Settings/Fonts/Molca-Brand-Bold LTSI.asset
@@ -620,15 +631,6 @@ Runtime/Settings/Fonts/Molca-Title 36_Overlay LTSI.asset
 Runtime/Settings/Fonts/Molca-Title 36_Overlay LTSI.asset.meta
 Runtime/Settings/Fonts/Molca-Title 78_Overlay LTSI.asset
 Runtime/Settings/Fonts/Molca-Title 78_Overlay LTSI.asset.meta
-Runtime/Settings/Fonts/Molca.meta
-Runtime/Settings/Fonts/Molca/Molca-Bold SDF.asset
-Runtime/Settings/Fonts/Molca/Molca-Bold SDF.asset.meta
-Runtime/Settings/Fonts/Molca/Molca-Bold.otf
-Runtime/Settings/Fonts/Molca/Molca-Bold.otf.meta
-Runtime/Settings/Fonts/Molca/Molca-Medium-alternative SDF.asset
-Runtime/Settings/Fonts/Molca/Molca-Medium-alternative SDF.asset.meta
-Runtime/Settings/Fonts/Molca/Molca-Medium-alternative.otf
-Runtime/Settings/Fonts/Molca/Molca-Medium-alternative.otf.meta
 Runtime/Settings/Fonts/Poppins.meta
 Runtime/Settings/Fonts/Poppins/OFL.txt
 Runtime/Settings/Fonts/Poppins/OFL.txt.meta
@@ -640,10 +642,10 @@ Runtime/Settings/Fonts/Poppins/Poppins-Bold SDF.asset
 Runtime/Settings/Fonts/Poppins/Poppins-Bold SDF.asset.meta
 Runtime/Settings/Fonts/Poppins/Poppins-Bold.ttf
 Runtime/Settings/Fonts/Poppins/Poppins-Bold.ttf.meta
-Runtime/Settings/Fonts/Poppins/Poppins-BoldItalic.ttf
-Runtime/Settings/Fonts/Poppins/Poppins-BoldItalic.ttf.meta
 Runtime/Settings/Fonts/Poppins/Poppins-Bold_Overlay SDF.asset
 Runtime/Settings/Fonts/Poppins/Poppins-Bold_Overlay SDF.asset.meta
+Runtime/Settings/Fonts/Poppins/Poppins-BoldItalic.ttf
+Runtime/Settings/Fonts/Poppins/Poppins-BoldItalic.ttf.meta
 Runtime/Settings/Fonts/Poppins/Poppins-ExtraBold.ttf
 Runtime/Settings/Fonts/Poppins/Poppins-ExtraBold.ttf.meta
 Runtime/Settings/Fonts/Poppins/Poppins-ExtraBoldItalic.ttf
@@ -753,6 +755,9 @@ Runtime/Settings/Rendering/Molca URP Asset_Renderer.asset
 Runtime/Settings/Rendering/Molca URP Asset_Renderer.asset.meta
 Runtime/Settings/Rendering/Molca VolumeProfile.asset
 Runtime/Settings/Rendering/Molca VolumeProfile.asset.meta
+Runtime/Settings/UI Tokens.meta
+Runtime/Settings/UI Tokens/UI Token Catalog.asset
+Runtime/Settings/UI Tokens/UI Token Catalog.asset.meta
 Runtime/Shaders.meta
 Runtime/Shaders/GradientSky.shader
 Runtime/Shaders/GradientSky.shader.meta
@@ -826,5 +831,3 @@ Samples~/Tests/MediaInfo/5.png
 Samples~/Tests/MediaInfo/5.png.meta
 Samples~/Tests/MediaInfo/8.png
 Samples~/Tests/MediaInfo/8.png.meta
-package.json
-package.json.meta
