@@ -2,6 +2,19 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.4] — 2026-07-04
+
+### Fixed
+- **Modals now untrack from `ModalManager` when destroyed externally.** Six modals
+  (`DatePickerModal`, `MediaConfirmationModal`, `NumberInputKeyboard`, `ProgressModal`, `SelectionModal`,
+  `TextInputModal`) declared their own `private void OnDestroy()`, shadowing the base cleanup so a modal
+  destroyed outside the normal close path stayed registered. They now `override` the base and call
+  `base.OnDestroy()` (part of the Sprint 79 silent-failure scrub).
+
+### Changed
+- Bump the `com.molca.core` dependency pin to `1.12.2` (required: the modal fix relies on Core 1.12.2's new
+  `protected virtual BaseModal.OnDestroy()`).
+
 ## [0.2.3] — 2026-07-04
 
 ### Added

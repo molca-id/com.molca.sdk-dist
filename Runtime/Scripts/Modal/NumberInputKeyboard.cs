@@ -105,8 +105,10 @@ namespace MolcaSDK
                 negativeButton.onClick.AddListener(OnNegativePressed);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy(); // untrack from ModalManager on external destroy
+
             // Clean up button listeners
             for (int i = 0; i < numberButtons.Length; i++)
             {

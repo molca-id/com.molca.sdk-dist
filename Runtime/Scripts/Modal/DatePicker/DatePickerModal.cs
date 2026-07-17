@@ -134,8 +134,9 @@ namespace MolcaSDK
                 clearButton.onClick.AddListener(OnClearPressed);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy(); // untrack from ModalManager on external destroy
             if (previousMonthButton != null)
                 previousMonthButton.onClick.RemoveAllListeners();
             

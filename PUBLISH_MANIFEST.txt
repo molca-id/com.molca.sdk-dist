@@ -1,7 +1,7 @@
-﻿com.molca.sdk@0.2.3
-Depends on com.molca.core@1.11.3 (consumer resolves Core dist Git-URL)
-Published: 2026-07-15 14:21:29Z
-Source commit: ec5e2165
+﻿com.molca.sdk@0.2.4
+Depends on com.molca.core@1.12.2 (consumer resolves Core dist Git-URL)
+Published: 2026-07-17 15:22:16Z
+Source commit: 08d1cde3
 Files: 827
 
 CHANGELOG.md

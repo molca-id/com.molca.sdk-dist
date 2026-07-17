@@ -136,8 +136,9 @@ namespace MolcaSDK
                 deselectAllButton.onClick.AddListener(OnDeselectAllPressed);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy(); // untrack from ModalManager on external destroy
             if (confirmButton != null)
                 confirmButton.onClick.RemoveAllListeners();
             

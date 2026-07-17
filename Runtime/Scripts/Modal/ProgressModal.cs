@@ -100,8 +100,9 @@ namespace MolcaSDK
                 resumeButton.onClick.AddListener(OnResumePressed);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy(); // untrack from ModalManager on external destroy
             if (cancelButton != null)
                 cancelButton.onClick.RemoveAllListeners();
             
