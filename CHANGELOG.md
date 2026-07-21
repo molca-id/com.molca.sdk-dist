@@ -2,6 +2,13 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.5] — 2026-07-07
+
+### Added
+- **Reference documentation.** `Documentation~/reference/` now ships consumer-facing guides for the SDK
+  layer (overview, quick setup, app flow, auth, media, modals, UI, utilities). They are auto-discovered
+  by Core's docs provider and appear in **Molca → Hub → Docs** alongside Core's guides.
+
 ## [0.2.4] — 2026-07-04
 
 ### Fixed

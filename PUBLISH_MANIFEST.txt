@@ -1,11 +1,19 @@
-﻿com.molca.sdk@0.2.4
+﻿com.molca.sdk@0.2.5
 Depends on com.molca.core@1.12.2 (consumer resolves Core dist Git-URL)
-Published: 2026-07-17 15:22:16Z
-Source commit: 08d1cde3
-Files: 827
+Published: 2026-07-21 20:57:37Z
+Source commit: 1e9feb62
+Files: 835
 
 CHANGELOG.md
 CHANGELOG.md.meta
+Documentation~/reference/SDK_APP_FLOW.md
+Documentation~/reference/SDK_AUTH.md
+Documentation~/reference/SDK_MEDIA.md
+Documentation~/reference/SDK_MODALS.md
+Documentation~/reference/SDK_OVERVIEW.md
+Documentation~/reference/SDK_QUICK_SETUP.md
+Documentation~/reference/SDK_UI.md
+Documentation~/reference/SDK_UTILITIES.md
 Editor.meta
 Editor/Scripts.meta
 Editor/Scripts/AddressablesBuildNotificationProvider.cs
