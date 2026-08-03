@@ -2,6 +2,14 @@
 
 All notable changes to the Molca SDK package.
 
+## [0.2.6] — 2026-08-03
+
+**Final release — this package is deprecated.** `com.molca.sdk` is dissolved into `com.molca.core`
+2.0.0: the uGUI layer moved into Core proper, and the app-scaffolding code moved into Core's Starter
+Project Content sample under the renamed `Molca.App`/`Molca.App.Editor` assemblies. No source changed
+in this release — only `package.json` and `README.md` carry the deprecation notice and migration
+pointer. No further versions will be published. See the README for the upgrade path.
+
 ## [0.2.5] — 2026-07-07
 
 ### Added

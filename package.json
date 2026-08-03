@@ -1,8 +1,8 @@
 {
   "name": "com.molca.sdk",
-  "version": "0.2.5",
-  "displayName": "Molca SDK",
-  "description": "Shared SDK layer on top of Molca Core: common app scaffolding (auth, media, modals, home, preload, UI building blocks) that the VR/DT SDK forks and projects extend.",
+  "version": "0.2.6",
+  "displayName": "Molca SDK (deprecated)",
+  "description": "DEPRECATED — dissolved into com.molca.core 2.0.0. Do not add to a new project; see README for the migration path. This is the final release.",
   "unity": "6000.0",
   "unityRelease": "0f1",
   "documentationUrl": "https://github.com/molca-id/framework-unity",
